@@ -10,7 +10,7 @@
 <div class="box">
 <table>
 <tr>
-	<td><button>Login</button></td>
+	<td><a href="login.php"><button>Login</button></a></td>
 </tr>
 <tr>
 <td><br></td>
@@ -28,7 +28,7 @@
 	<td><input type="password" placeholder="re-enter password"></td>
 </tr>
 <tr>
-	<td><button>Sign Up</button></td>
+	<td><button href="#">Sign Up</button></td>
 </tr>
 </table>
 </div>

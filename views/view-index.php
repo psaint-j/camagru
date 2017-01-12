@@ -9,27 +9,29 @@
 <h1>Camagru</h1>
 <div class="box">
 <table>
+<form action="index.php" method="POST">
 <tr>
-	<td><a href="login.php"><button>Login</button></a></td>
+	<td><a href="login.php"><button type="button">Login</button></a></td>
 </tr>
 <tr>
 <td><br></td>
 </tr>
 <tr>
-	<td><input type="text" placeholder="name"></td>
+	<td><input type="text" placeholder="name" name="username"></td>
 </tr>
 <tr>
-	<td><input type="text" placeholder="email"></td>
+	<td><input type="email" placeholder="email" name="mail"></td>
 </tr>
 <tr>
-	<td><input type="password" placeholder="password"></td>
+	<td><input type="password" placeholder="password" name="password"></td>
 </tr>
 <tr>
-	<td><input type="password" placeholder="re-enter password"></td>
+	<td><input type="password" placeholder="re-enter password" name="repassword"></td>
 </tr>
 <tr>
-	<td><button href="#">Sign Up</button></td>
+	<td><button type="submit">Sign Up</button></td>
 </tr>
+</form>
 </table>
 </div>
 </body>

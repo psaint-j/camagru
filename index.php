@@ -20,8 +20,8 @@ if (empty($error))
 	session_start();
 
 	require_once("config/database.php");
-	addUser($db, $DB_NAME, $_POST['username'], $_POST['mail'], $_POST['password']);
-
+	addUser($db, $_POST['username'], $_POST['mail'], $_POST['password']);
+	sessionStart($_POST);
 }
 	//var_dump($error);
 }

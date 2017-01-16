@@ -1,10 +1,17 @@
 <?php 
+var_dump($_SESSION);
+if ($_SESSION['signup'] == 1)
+	echo "<h4>Un mail de confirmation vous à etait envoyer</h4>";
 if (!empty($_POST))
 {
+	require_once('config/database.php');
 	$error = array();
 	if (empty($_POST['username']) || !preg_match('/^[a-z0-9]+$/', $_POST['username']) || strlen($_POST['username']) > 16)
 	{
 		$error['username'] = "username invalide !";
+	}
+	else{
+		//$req->prepare("SELECT id WHERE user")
 	}
 	if (empty($_POST['password']))
 	{
@@ -12,9 +19,11 @@ if (!empty($_POST))
 	}
 	if (empty($error))
 	{
-		require_once('config/database.php');
-		Login($db, $DB_NAME, $_POST['username'], $_POST['password']);
+
+		//require_once('config/database.php');
+		//Login($db, $DB_NAME, $_POST['username'], $_POST['password']);
 	}
+	var_dump($error);
 }
 require ('views/view-login.php');
 ?>

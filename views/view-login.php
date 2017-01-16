@@ -2,23 +2,26 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Montserrat|Pacifico|Roboto" rel="stylesheet">
 	<title>Camagru - login</title>
 </head>
 <body>
-<h1>login</h1>
-<div class="box">
-<table>
-<tr>
-<tr>
-	<td><input type="text" placeholder="email"></td>
-</tr>
-<tr>
-	<td><input type="password" placeholder="password"></td>
-</tr>
-<tr>
-	<td><button href="#">Login</button></td>
-</tr>
-</table>
-</div>
-</body>
-</html>
+	<h1>Camagru</h1>
+	<div class="box">
+		<table>
+			<form action="login.php" method="POST">
+				<tr>
+					<tr>
+						<td><input name="username" type="text" placeholder="name"></td>
+					</tr>
+					<tr>
+						<td><input name="password" type="password" placeholder="password"></td>
+					</tr>
+					<tr>
+						<td><button type="submit">Login</button></td>
+					</tr>
+				</form>
+			</table>
+		</div>
+	</body>
+	</html>

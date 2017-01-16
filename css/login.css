@@ -7,7 +7,7 @@ body
 .box{
 	margin:0 auto;
 	width: 600px;
-	height: 400px;
+	height: 250px;
 	display: block;
 	text-align: center;
 	background-color: #fff;
@@ -39,5 +39,53 @@ button{
 	font-size: 1em;
 }
 h1{
-	font-size: 45px;
+	font-family: bungee shade;
+	font-size: 5em;
+}
+
+@media screen and (min-width: 200px) and (max-width: 1024px){
+
+	.box{
+		margin:0 auto;
+		width:90%;
+		height: 425px;
+		display: block;
+		text-align: center;
+		background-color:#fff;
+		border: 1px solid #efefef;
+	}
+
+	input{
+		
+		height: 60px;
+		width: 76%;
+		font-size: 32px;
+		font-family: montserrat;
+		text-align: left;
+		margin: 1%;
+		border: 1px solid black;
+		padding-left: 10%;
+	}
+	table{
+
+		width: 100%;
+		font-size: 24px;
+	}
+	button{
+		background-color: #3897f0;
+		text-decoration: none;
+		border: 1px;
+		border-radius: 5px;
+		color: white;
+		width: 80%;
+		height: 60px;
+		font-family: montserrat;
+		font-size: 1em;
+	}
+	.trait
+	{
+		width: 80%;
+		margin-left: 10%;
+		margin-right: 10%;
+	}
 }

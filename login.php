@@ -1,7 +1,4 @@
 <?php 
-var_dump($_SESSION);
-if ($_SESSION['signup'] == 1)
-	echo "<h4>Un mail de confirmation vous à etait envoyer</h4>";
 if (!empty($_POST))
 {
 	require_once('config/database.php');

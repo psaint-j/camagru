@@ -50,13 +50,30 @@ button{
 h1{
 	font-family: bungee shade;
 	font-size: 5em;
-	margin-bottom: -1.5%;
+	margin-bottom: -0.2%;
 }
 
 h4{
 	color:#999;
 	font-family: roboto;
 	font-size: 1.4em;
+}
+.alert{
+	position:absolute;
+	margin: 0 auto;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-decoration: none;
+	list-style: none;
+	background-color:#ff1a1a;
+	color: white;
+	font-size: 24px;
+	text-align: left;
+	list-style-position: ;
+	opacity: 0.8;
+	width: 100%;
+	text-align: center;
 }
 
 @media screen and (min-width: 200px) and (max-width: 1024px){
@@ -104,4 +121,24 @@ h4{
 		margin-left: 10%;
 		margin-right: 10%;
 	}
+}
+li{
+	text-align:center;
+}
+.alert{
+	position:absolute;
+	margin: 0 auto;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-decoration: none;
+	list-style: none;
+	background-color:#ff1a1a;
+	color: white;
+	font-size: 72px;
+	text-align: left;
+	list-style-position: ;
+	opacity: 0.8;
+	width: 100%;
+	text-align: center;
 }

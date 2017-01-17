@@ -42,7 +42,16 @@ h1{
 	font-family: bungee shade;
 	font-size: 5em;
 }
-
+.alert{
+		position:absolute;
+		bottom:0;
+		left: 0;
+		right: 0;
+		background-color: #3897f0;
+		color: white;
+		list-style-type: none;
+		font-size: 24px;
+}
 @media screen and (min-width: 200px) and (max-width: 1024px){
 
 	.box{
@@ -77,7 +86,7 @@ h1{
 		border: 1px;
 		border-radius: 5px;
 		color: white;
-		width: 80%;
+		width: 86%;
 		height: 60px;
 		font-family: montserrat;
 		font-size: 1em;
@@ -88,4 +97,5 @@ h1{
 		margin-left: 10%;
 		margin-right: 10%;
 	}
+
 }

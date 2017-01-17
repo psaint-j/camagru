@@ -10,6 +10,11 @@
 	<div class="box">
 		<table>
 			<form action="login.php" method="POST">
+			<?php if ($_GET['account'] == md5("true")): ?>
+			<div class="alert">
+				<li>un email de confirmation vous à été envoyé</li>
+			</div>
+			<?php endif; ?>
 				<tr>
 					<tr>
 						<td><input name="username" type="text" placeholder="name"></td>

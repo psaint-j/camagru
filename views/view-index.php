@@ -11,6 +11,17 @@
 <table>
 <form action="index.php" method="POST">
 <tr>
+	<td>
+	<?php if (!empty($error)): ?>
+	<div class="alert">
+	<?php foreach ($error as $var): ?>
+		<li><?= $var;?></li>
+	<?php endforeach; ?>
+	</div>
+<?php endif; ?>
+	</td>
+</tr>
+<tr>
 	<td><a href="login.php"><button type="button">Login</button></a></td>
 </tr>
 <tr>

@@ -54,14 +54,14 @@ mail($email, $objet, $contenu, $entetes);
 function addUser($db, $name, $email, $password)
 {
 
-	$req = $db->prepare("INSERT INTO users SET username = ?, password = ?, email = ?, confirmation_token = ?, active = ?");
+	$req = $db->prepare("INSERT INTO users SET username = ?, password = ?, email = ?, confirmation_token = ?");
 	$token = md5($username + $email + "sevran");
 	$password = password_cryte($password);
-	$req->execute(array($name, $password, $email, $token, 0));
-	$key = md5("true");
+	$req->execute(array($name, $password, $email, $token));
+	$var = md5("true");
 	$key = "http://localhost:8080/camagru/confirmation.php?token={$token}&name={$name}";
-	sendEmail($name, $email, $key);
-	header('Location:login.php?account='."{$token}");
+	sendEmail($name, $email, $token);
+	header('Location:login.php?account='."{$var}");
 }
 
 function Login($db, $db_name, $name, $password)
@@ -85,7 +85,8 @@ function SetupDatabase($db, $db_name)
 		username VARCHAR(10) NOT NULL, 
 		email VARCHAR(255) NOT NULL,
 		password VARCHAR(255) NOT NULL,
-		active INT(1) NOT NULL);");
+		confirmation_token VARCHAR(60) NOT NULL,
+		confirmation_at DATE DEFAULT NULL);");
 	$db->exec("USE {$db_name}");
 	//header('Location:login.php');
 }

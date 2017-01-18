@@ -1,5 +1,9 @@
 <?php
 require_once("config/database.php");
+if ($_SESSION)
+{
+	header('Location:member.php');
+}
 if (!empty($_POST))
 {
 	$error = array();

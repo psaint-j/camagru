@@ -7,45 +7,31 @@ if (!empty($_POST))
 	{
 		$error['username'] = "username invalide !";
 	}
-	else{
-		$req = $db->prepare('SELECT id FROM users WHERE username = ?');
-		$req->execute(array($_POST['username']));
-		$user = $req->fetch();
-		var_dump($user);
-	}
 	if (empty($_POST['password']))
 	{
 		$error['password'] = "Vous devez renter un mot de passe valide";
 	}
-	else{
-		$req = $db->prepare("SELECT username FROM users WHERE password = ?");
-		$pwd = password_cryte($_POST['password']);
-		$req->execute(array($pwd));
-		$pass = $req->fetch();
-		var_dump($pass);
-	}
 	if (empty($error))
 	{
-		$req = $db->prepare('SELECT confirmation_at FROM users WHERE username = ?');
-		$req->execute(array($pass['username']));
+		$req = $db->prepare('SELECT id, confirmation_at FROM users WHERE username = ? AND password = ?');
+		$req->execute(array($_POST['username'], password_cryte($_POST['password'])));
 		$var = $req->fetch();
-		var_dump($var);
-		if ($pass['username'] == $_POST['username'] && !empty($user))
+		if (is_array($var))
 		{
-			if (!empty($var['confirmation_at']))
+			extract($var);
+			if (empty($confirmation_at))
 			{
-				die('connexion reussie !');
+				$error['activation'] = "vous devez activer votre compte";
 			}
-			else{
-				die('Vous devez activer votre compte !');
+			if ($confirmation_at && $id != NULL)
+			{
+				header('Location: menber.php');
 			}
 		}
-		else
-		{
-			die('Echec de connexion !');
+		else{
+			$error['invalide'] = "username ou mot de passe invalide";
 		}
 	}
-	var_dump($error);
 }
 require ('views/view-login.php');
 ?>

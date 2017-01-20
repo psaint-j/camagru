@@ -7,6 +7,13 @@
 </head>
 <body>
 	<h1>Camagru</h1>
+	<?php if (!empty($error)): ?>
+		<div class="alert">
+	<?php foreach ($error as $var): ?>
+		<li><?= $var;?></li>
+	<?php endforeach; ?>
+		</div>
+	<?php endif; ?>
 	<div class="box">
 		<table>
 			<form action="login.php" method="POST">

@@ -2,6 +2,7 @@
 if (!empty($_POST))
 {
 	require_once('config/database.php');
+	require('config/session.php');
 	$error = array();
 	if (empty($_POST['username']) || !preg_match('/^[a-z0-9]+$/', $_POST['username']) || strlen($_POST['username']) > 16)
 	{
@@ -25,6 +26,7 @@ if (!empty($_POST))
 			}
 			if ($confirmation_at && $id != NULL)
 			{
+				session_init($_POST['username'], $id);
 				header('Location: menber.php');
 			}
 		}

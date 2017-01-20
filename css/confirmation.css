@@ -1,0 +1,30 @@
+body
+{
+	text-align: center;
+	background-color: #fafafa;
+}
+
+.box{
+	margin:0 auto;
+	width: 600px;
+	height: 200px;
+	display: block;
+	text-align: center;
+	background-color: #fff;
+	border: 1px solid #efefef;
+}
+h1{
+	font-family: pacifico;
+}
+
+button{
+	background-color: #3897f0;
+	text-decoration: none;
+	border: 1px;
+	border-radius: 5px;
+	color: white;
+	width: 60%;
+	height: 30px;
+	font-family: montserrat;
+	font-size: 1em;
+}

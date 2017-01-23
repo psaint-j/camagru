@@ -43,18 +43,14 @@ img{
 .box{
   margin:0 auto;
   width: 600px;
-  height: 400px;
+  height: auto;
   display: block;
   text-align: center;
   background-color: #fff;
   border: 1px solid #efefef;
   margin-top: 10px;
-  display: inline-block;
 }
 
-
-
-@media screen and (min-width: 600px) {
   .nav li {
     width: 120px;
     border-bottom: none;
@@ -62,17 +58,43 @@ img{
     line-height: 50px;
     font-size: 1.4em;
   }
-  video{
-    
+    .nav li {
+    display: inline-block;
+    margin-right: -4px;
   }
+
+@media screen and (min-width: 200px) and (max-width: 1024px){
+  .nav li {
+    width: 120px;
+    border-bottom: none;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.4em;
+  }
+
+.box{
+  margin:0 auto;
+  width: 600px;
+  height: 400px;
+  display: block;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #efefef;
+  margin-top: 10px;
+}
+
+img{
+  width: 30%;
+  margin-top: 5px;
+}
   /* Option 1 - Display Inline */
   .nav li {
     display: inline-block;
     margin-right: -4px;
   }
 
-  /* Options 2 - Float
-  .nav li {
+  /* Options 2 - Float*/
+/*  .nav li {
     float: left;
   }
   .nav ul {
@@ -83,5 +105,5 @@ img{
   .nav {
     background-color: #444;
   }
-  */
-}
+  
+}*/

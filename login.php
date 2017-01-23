@@ -1,8 +1,13 @@
 <?php 
+require_once('config/database.php');
+require('config/session.php');
+if ($_SESSION['username'])
+{
+	header('Location: menber.php');
+	exit;
+}
 if (!empty($_POST))
 {
-	require_once('config/database.php');
-	require('config/session.php');
 	$error = array();
 	if (empty($_POST['username']) || !preg_match('/^[a-z0-9]+$/', $_POST['username']) || strlen($_POST['username']) > 16)
 	{
@@ -28,6 +33,7 @@ if (!empty($_POST))
 			{
 				session_init($_POST['username'], $id);
 				header('Location: menber.php');
+				exit;
 			}
 		}
 		else{

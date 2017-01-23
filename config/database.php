@@ -30,25 +30,25 @@ function password_cryte($password)
 function sendEmail($name, $email, $token)
 { 
 // Mail
-$objet = 'Activation de votre compte Camagru' ;
-$contenu = '
-<html>
-<head>
-   <title>Vous avez réservé sur notre site ...</title>
-</head>
-<body>
-   <h1>Hello '.$name.' !</h1>
-   <p>Afin de confirmer votre enregistrement, veuillez cliquer sur le lien suivant: <a href='.$token.'>activer mon compte</a></p>
-</body>
-</html>';
-$entetes =
-'Content-type: text/html; charset=utf-8' . "\r\n" .
-'From: Camagru@domain.tld' . "\r\n" .
-'Reply-To: Camagru@domain.tld' . "\r\n" .
-'X-Mailer: PHP/' . phpversion();
-                         
+	$objet = 'Activation de votre compte Camagru' ;
+	$contenu = '
+	<html>
+	<head>
+		<title>Vous avez réservé sur notre site ...</title>
+	</head>
+	<body>
+		<h1>Hello '.$name.' !</h1>
+		<p>Afin de confirmer votre enregistrement, veuillez cliquer sur le lien suivant: <a href='.$token.'>activer mon compte</a></p>
+	</body>
+	</html>';
+	$entetes =
+	'Content-type: text/html; charset=utf-8' . "\r\n" .
+	'From: Camagru@domain.tld' . "\r\n" .
+	'Reply-To: Camagru@domain.tld' . "\r\n" .
+	'X-Mailer: PHP/' . phpversion();
+	
 //Envoi du mail
-mail($email, $objet, $contenu, $entetes);
+	mail($email, $objet, $contenu, $entetes);
 }
 
 function addUser($db, $name, $email, $password)
@@ -62,6 +62,7 @@ function addUser($db, $name, $email, $password)
 	$key = "http://localhost:8080/camagru/confirmation.php?token={$token}&name={$name}";
 	sendEmail($name, $email, $key);
 	header('Location:login.php?account='."{$var}");
+	exit;
 }
 
 function session_init($name, $id)

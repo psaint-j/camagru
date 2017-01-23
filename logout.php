@@ -1,10 +1,9 @@
-<?php 
+<?php 	
 require('config/session.php');
 if ($_SESSION['username'])
 {
-	require ('views/view-menber.php');
-}
-else{
+	$_SESSION['username'] = "";
+	$_SESSION['id'] = "";
 	header('Location: index.php');
 }
 ?>

@@ -13,8 +13,6 @@ try
 	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_NAMED);
 	$db->exec("USE 42_camagru");
-	//DeletedDatabase($db, '42_camagru')
-	//SetupDatabase($db, '42_camagru');
 }
 catch(PDOException $e)
 {	
@@ -96,7 +94,6 @@ function SetupDatabase($db, $db_name)
 		confirmation_token VARCHAR(60) NOT NULL,
 		confirmation_at DATE DEFAULT NULL);");
 	$db->exec("USE {$db_name}");
-	//header('Location:login.php');
 }
 
 function DeletedDatabase($db, $name)

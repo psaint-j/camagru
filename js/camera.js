@@ -44,17 +44,30 @@
     }
   }, false);
 
-  function takepicture() {
-    canvas.width = width;
-    canvas.height = height;
-    canvas.getContext('2d').drawImage(video, 0, 0, width, height);
-    var data = canvas.toDataURL('image/png');
-    photo.setAttribute('src', data);
-  }
+  function loadImage(src, onload) {
+    var img = new Image();
+    
+    img.onload = onload;
+    img.src = src;
 
+    return img;
+}
+  
+  function takepicture() {
+    // canvas.width = width;
+    // canvas.height = height;
+    var ctx = canvas.getContext('2d');
+    ctx.drawImage(video, 0, 0);
+    ctx.globalAlpha = 1;
+    ctx.drawImage(img, -10,0);
+    var data = canvas.toDataURL('image/png');
+    canvas.setAttribute('src', data);
+  }
+  var img = loadImage('img/img1.png', takepicture);
   startbutton.addEventListener('click', function(ev){
     takepicture();
     ev.preventDefault();
   }, false);
+
 
 })();

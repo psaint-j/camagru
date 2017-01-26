@@ -18,7 +18,7 @@
 	<div class="box">
 		<video id="video" ></video>
 		<button id="startbutton">Prendre une photo</button>
-		<canvas class="canvas" id="canvas"></canvas>
+		<canvas class="canvas" width="560" height="400" id="canvas"></canvas>
 	</div>
 
 	<script src="js/camera.js" type="text/javascript"></script>

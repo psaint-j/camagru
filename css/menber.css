@@ -8,6 +8,10 @@ i{
   color: black;
 }
 
+video{
+  transform: scale(-1, 1);
+}
+
 img{
   width: 30%;
   margin-top: 5px;
@@ -67,6 +71,7 @@ img{
 
 .canvas{
   margin-top:10px;
+  transform: scale(-1, 1);
 }
 
 button{

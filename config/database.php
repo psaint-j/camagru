@@ -82,20 +82,6 @@ function Login($db, $db_name, $name, $password)
 	}
 }
 
-function SetupDatabase($db, $db_name)
-{
-	$db->exec("CREATE DATABASE IF NOT EXISTS {$db_name};");
-	$db->exec("USE {$db_name};");
-	$db->exec("CREATE TABLE users(
-		id INT(10) PRIMARY KEY AUTO_INCREMENT,
-		username VARCHAR(10) NOT NULL, 
-		email VARCHAR(255) NOT NULL,
-		password VARCHAR(255) NOT NULL,
-		confirmation_token VARCHAR(60) NOT NULL,
-		confirmation_at DATE DEFAULT NULL);");
-	$db->exec("USE {$db_name}");
-}
-
 function DeletedDatabase($db, $name)
 {
 	$db->exec("DROP DATABASE {$name};");

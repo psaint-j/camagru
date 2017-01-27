@@ -53,19 +53,19 @@
     return img;
 }
   
-  function takepicture() {
+  function takePicture() {
     // canvas.width = width;
     // canvas.height = height;
     var ctx = canvas.getContext('2d');
     ctx.drawImage(video, 0, 0);
     ctx.globalAlpha = 1;
-    ctx.drawImage(img, -10,0);
+    ctx.drawImage(img, 80,0);
     var data = canvas.toDataURL('image/png');
     canvas.setAttribute('src', data);
   }
-  var img = loadImage('img/img1.png', takepicture);
+  var img = loadImage('img/dog.png', takePicture);
   startbutton.addEventListener('click', function(ev){
-    takepicture();
+    takePicture();
     ev.preventDefault();
   }, false);
 

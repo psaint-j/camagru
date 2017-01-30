@@ -92,7 +92,7 @@ img{
 
 .canvas{
   margin-top:10px;
-  transform: scale(-1, 1);
+  //transform: scale(-1, 1);
 }
 
 button{
@@ -105,6 +105,7 @@ button{
   height: 30px;
   font-family: montserrat;
   font-size: 1em;
+  //visibility: hidden;
 }
 
 @media screen and (min-width: 200px) and (max-width: 1024px){

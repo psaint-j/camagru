@@ -22,11 +22,13 @@
 	<td><img src="img/img1.png" alt=""></td>
 	<td><img src="img/img2.png" alt=""></td>
 	<td><img src="img/img4.png" alt=""></td>
+	<td><img src="img/img5.png" alt=""></td>
 </tr>
 <tr>
 	<td><input type="checkbox" id="cbox1" onclick="selectOnlyThis(this.id)"></td>
 	<td><input type="checkbox" id="cbox2" onclick="selectOnlyThis(this.id)"></td>
 	<td><input type="checkbox" id="cbox3" onclick="selectOnlyThis(this.id)"></td>
+	<td><input type="checkbox" id="cbox4" onclick="selectOnlyThis(this.id)"></td>
 </tr>			
 </table>
 	</div>

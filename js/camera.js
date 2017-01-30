@@ -52,13 +52,13 @@
 
     return img;
 }
-  
+
   function takePicture() {
     var img = witchOne();
     var ctx = canvas.getContext('2d');
     ctx.drawImage(video, 0, 0);
     ctx.globalAlpha = 1;
-    ctx.drawImage(img, 0,0);
+    ctx.drawImage(img, 0,50);
     var data = canvas.toDataURL('image/png');
     canvas.setAttribute('src', data);
   }
@@ -68,6 +68,7 @@ function witchOne()
   var check1 = document.getElementById('cbox1');
   var check2 = document.getElementById('cbox2');
   var check3 = document.getElementById('cbox3');
+  var check4 = document.getElementById('cbox4');
 
   if (check1.checked)
   {
@@ -80,6 +81,10 @@ function witchOne()
   if (check3.checked)
   {
     var img = loadImage('img/img4.png');
+  }
+  if (check4.checked)
+  {
+    var img = loadImage('img/img5.png');
   }
   return img
 }

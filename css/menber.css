@@ -49,6 +49,27 @@ img{
 .box{
   margin:0 auto;
   width: 600px;
+  display: block;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #efefef;
+  margin-top: 10px;
+}
+
+.box_center{
+  float: center;
+  width: 600px;
+  height: auto;
+  display: block;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #efefef;
+  margin-top: 10px;
+}
+
+.box_left{
+  float: left;
+  width: 600px;
   height: auto;
   display: block;
   text-align: center;

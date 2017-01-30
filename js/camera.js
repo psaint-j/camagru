@@ -44,26 +44,46 @@
     }
   }, false);
 
-  function loadImage(src, onload) {
+  function loadImage(src) {
     var img = new Image();
     
-    img.onload = onload;
+    img.onload = onload = function(){};
     img.src = src;
 
     return img;
 }
   
   function takePicture() {
-    // canvas.width = width;
-    // canvas.height = height;
+    var img = witchOne();
     var ctx = canvas.getContext('2d');
     ctx.drawImage(video, 0, 0);
     ctx.globalAlpha = 1;
-    ctx.drawImage(img, 80,0);
+    ctx.drawImage(img, 0,0);
     var data = canvas.toDataURL('image/png');
     canvas.setAttribute('src', data);
   }
-  var img = loadImage('img/dog.png', takePicture);
+
+function witchOne()
+{
+  var check1 = document.getElementById('cbox1');
+  var check2 = document.getElementById('cbox2');
+  var check3 = document.getElementById('cbox3');
+
+  if (check1.checked)
+  {
+    var img = loadImage('img/img1.png');
+  }
+  if (check2.checked)
+  {
+    var img = loadImage('img/img2.png');
+  }
+  if (check3.checked)
+  {
+    var img = loadImage('img/img4.png');
+  }
+  return img
+}
+  
   startbutton.addEventListener('click', function(ev){
     takePicture();
     ev.preventDefault();

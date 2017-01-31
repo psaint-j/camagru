@@ -28,6 +28,12 @@ function SetupDatabase($db, $db_name)
 		password VARCHAR(255) NOT NULL,
 		confirmation_token VARCHAR(60) NOT NULL,
 		confirmation_at DATE DEFAULT NULL);");
+
+	$db->exec("CREATE TABLE images(
+		id INT(10) PRIMARY KEY AUTO_INCREMENT,
+		user_id INT(10) NOT NULL,
+		link VARCHAR(60) NOT NULL, 
+		at DATETIME DEFAULT NULL);");
 	$db->exec("USE {$db_name}");
 }
 

@@ -53,14 +53,64 @@
     return img;
 }
 
+var getHttpRequest = function () {
+  var httpRequest = false;
+
+  if (window.XMLHttpRequest) { // Mozilla, Safari,...
+    httpRequest = new XMLHttpRequest();
+    if (httpRequest.overrideMimeType) {
+      httpRequest.overrideMimeType('text/xml');
+    }
+  }
+  else if (window.ActiveXObject) { // IE
+    try {
+      httpRequest = new ActiveXObject("Msxml2.XMLHTTP");
+    }
+    catch (e) {
+      try {
+        httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      catch (e) {}
+    }
+  }
+
+  if (!httpRequest) {
+    alert('Abandon :( Impossible de créer une instance XMLHTTP');
+    return false;
+  }
+
+  return httpRequest
+}
+
   function takePicture() {
     var img = witchOne();
-    var ctx = canvas.getContext('2d');
-    ctx.drawImage(video, 0, 0);
-    ctx.globalAlpha = 1;
-    ctx.drawImage(img, 0,50);
-    var data = canvas.toDataURL('image/png');
-    canvas.setAttribute('src', data);
+    if (img)
+    {
+      var ctx = canvas.getContext('2d');
+      ctx.drawImage(video, 0, 0);
+      ctx.globalAlpha = 1;
+      ctx.drawImage(img, 0,50);
+      var data = canvas.toDataURL('image/png');
+      canvas.setAttribute('src', data);
+      var xhr = getHttpRequest()
+      var post = new FormData()
+      post.append('img', data);
+      xhr.open('POST', 'http://localhost:8080/camagru/layer.php', true);
+      xhr.setRequestHeader('X-Requested-With', 'xmlhttprequest');
+            xhr.onreadystatechange = function () {
+  if (xhr.readyState === 4) {
+    if (xhr.status === 200) {
+        //window.alert(xhr.responseText); // contient le résultat de la page
+    } else {
+        // Le serveur a renvoyé un status d'erreur
+    }
+  }
+}
+      xhr.send(post);
+
+    }
+    else
+      window.alert("Vous devez obligatoirement choisir une image !")
   }
 
 function witchOne()

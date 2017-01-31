@@ -63,6 +63,13 @@ function addUser($db, $name, $email, $password)
 	exit;
 }
 
+function addImage($db, $id, $link)
+{
+	$today = date("Y-m-d H:i:s");
+	$req = $db->prepare("INSERT INTO images SET user_id = ?, link = ?, at = ?");
+	$req->execute(array($id, $link, $today));
+}
+
 function session_init($name, $id)
 {
 	$_SESSION['username'] = $name;

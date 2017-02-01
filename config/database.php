@@ -89,6 +89,14 @@ function Login($db, $db_name, $name, $password)
 	}
 }
 
+function findUser($db, $id)
+{
+	$req = $db->prepare('SELECT username FROM users WHERE id = ?');
+	$req->execute(array($id));
+	$user = $req->fetch();
+	return $user['username'];
+}
+
 function DeletedDatabase($db, $name)
 {
 	$db->exec("DROP DATABASE {$name};");

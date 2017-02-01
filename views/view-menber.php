@@ -9,8 +9,8 @@
 	<header>
 		<div class="nav">
 			<ul>
-				<li><a href="#"><img id="home" src="svg/home.svg" alt="home"/></a></li>
-				<li><a href="#"><img id="btn" src="svg/image.svg" alt="take a picture"/></a></li>
+				<li><a href="gallery.php"><img id="home" src="svg/home.svg" alt="home"/></a></li>
+				<li><a href="menber.php"><img id="btn" src="svg/image.svg" alt="take a picture"/></a></li>
 				<li class="logout"><a href="logout.php"><img src="svg/logout2.svg" alt="logout"/></a></li>
 			</ul>
 		</div>

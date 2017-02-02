@@ -54,19 +54,23 @@ img{
   background-color: #fff;
   border: 1px solid #efefef;
   margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid #e6e6e6;
 }
 
 .img_size
 {
   height: 440px;
-  width: 90%;
+  width: 100%;
 }
 
 .info_user
 {
   position: relative;
-  left: -187px;
+  left: -258px;
   display: inline;
+  font-size: 28px;
+  font-family: amatic sc;
 }
 
 .info_date
@@ -74,6 +78,7 @@ img{
   position: relative;
   right: -187px;
   display: inline;
+  color: grey;
 }
 
 .info{
@@ -82,17 +87,12 @@ img{
   margin-top: 10px;
 }
 
-.info_heart
+.heart_s
 {
   position: relative;
   left: -257px;
-  font-size: 120%;
-}
-
-.info_heart:hover
-{
-  position: relative;
-  left: -257px;
+  font-size: 27px;
+  color:#9b9b9b;
 }
 
 .interaction{
@@ -123,17 +123,17 @@ img{
   margin-top: 10px;
 }
 
-  .nav li {
-    width: 120px;
-    border-bottom: none;
-    height: 50px;
-    line-height: 50px;
-    font-size: 1.4em;
-  }
-    .nav li {
-    display: inline-block;
-    margin-right: -4px;
-  }
+.nav li {
+  width: 120px;
+  border-bottom: none;
+  height: 50px;
+  line-height: 50px;
+  font-size: 1.4em;
+}
+.nav li {
+  display: inline-block;
+  margin-right: -4px;
+}
 
 .canvas{
   margin-top:10px;
@@ -162,27 +162,32 @@ button{
     font-size: 1.4em;
   }
 
-.box{
-  margin:0 auto;
-  width: 600px;
-  height: 400px;
-  display: block;
-  text-align: center;
-  background-color: #fff;
-  border: 1px solid #efefef;
-  margin-top: 10px;
-}
+  .box{
+    margin:0 auto;
+    width: 600px;
+    height: 400px;
+    display: block;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #efefef;
+    margin-top: 10px;
+  }
 
-img{
-  width: 30%;
-  margin-top: 5px;
-}
+  img{
+    width: 30%;
+    margin-top: 5px;
+  }
   /* Option 1 - Display Inline */
   .nav li {
     display: inline-block;
     margin-right: -4px;
   }
 
+  .img_size
+  {
+    height: 288px;
+    width: 85%;
+  }
   /* Options 2 - Float*/
 /*  .nav li {
     float: left;

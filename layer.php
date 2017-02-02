@@ -1,7 +1,7 @@
 <?php
 require('config/session.php');
 require_once('config/database.php');
-//	var_dump($_SESSION);
+var_dump($_SESSION);
 if ($_POST['img'])
 {
 	$img = $_POST['img']; // Your data 'data:image/png;base64,AAAFBfj42Pj4';
@@ -14,5 +14,9 @@ if ($_POST['img'])
 	// user_id = $_SESSION['id'], link = link, at = date
 	addImage($db, $_SESSION[id], $link);
 	// ./tmp/lipfy@2017-01-31-AT-10:55:56
+}
+else
+{
+	header('Location: index.php');
 }
 ?>

@@ -1,5 +1,6 @@
-var heart = document.getElementById('heart');
-heart.addEventListener('click', function(){
+
+function likeImg(id){
+	var heart = document.getElementById(id);
 	var val = heart.classList.contains('fa-heart-o');
 	if (val)
 	{
@@ -9,6 +10,6 @@ heart.addEventListener('click', function(){
 	}
 	else {
 		heart.classList.add('fa-heart-o');
-		heart.style.color='black';
+		heart.style.color='#9b9b9b';
 	}
-});
+}

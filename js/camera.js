@@ -6,7 +6,7 @@
   canvas       = document.querySelector('#canvas'),
   photo        = document.querySelector('#photo'),
   startbutton  = document.querySelector('#startbutton'),
-  width = 560,
+  width = 601,
   height = 0;
 
   navigator.getMedia = ( navigator.getUserMedia ||
@@ -100,7 +100,7 @@ function takePicture() {
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
-        window.alert(xhr.responseText); // contient le résultat de la page
+        //window.alert(xhr.responseText); // contient le résultat de la page
       } else {
         window.alert("wrong link");
       }

@@ -93,6 +93,11 @@ img{
   left: -257px;
   font-size: 27px;
   color:#9b9b9b;
+  transition: color 0.3s;
+}
+
+.heart_s:hover{
+  color: red;
 }
 
 .interaction{

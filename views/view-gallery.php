@@ -23,6 +23,10 @@
 	$var = $req->fetchAll(PDO::FETCH_CLASS);
 	foreach ($var as $key => $value) {
 		$user = findUser($db, $value->user_id);
+		$req2 = $db->prepare('SELECT id FROM likes WHERE image_id = ? AND user_id = ?');
+		$req2->execute(array($value->id, $value->user_id));
+		$on = $req2->fetch();
+		//var_dump($on);
 		print_r('<div class="box">');
 		print_r("<div class='info'>");
 		echo "<h4 class='info_user'>$user</h4>";
@@ -30,7 +34,14 @@
 		print_r("</div>");
 		echo "<img class='img_size' src='"."{$value->link}"."''>";
 		print_r("<div class='interaction'>");
-		echo "<i id='{$value->id}' class='fa fa-heart-o heart_s' aria-hidden='true' onclick='likeImg(this.id)' style='font-size: 28px;'></i>";
+		if($on)
+		{
+			echo "<i id='{$value->id}' class='fa fa-heart heart_s' aria-hidden='true' onclick='likeImg(this.id)' style='font-size: 28px;color:red;'></i>";
+		}
+		else
+		{
+			echo "<i id='{$value->id}' class='fa fa-heart-o heart_s' aria-hidden='true' onclick='likeImg(this.id)' style='font-size: 28px; '></i>";
+		}
 		print_r('</div>');
 		print_r('</div>');
 	}

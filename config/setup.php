@@ -34,6 +34,10 @@ function SetupDatabase($db, $db_name)
 		user_id INT(10) NOT NULL,
 		link VARCHAR(60) NOT NULL, 
 		at DATETIME DEFAULT NULL);");
+	$db->exec("CREATE TABLE likes (
+		id INT NOT NULL PRIMARY KEY AUTO_INCREMENT , 
+		user_id INT NOT NULL , 
+		image_id INT NOT NULL);");
 	$db->exec("USE {$db_name}");
 }
 

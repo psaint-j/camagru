@@ -37,6 +37,7 @@ require_once('config/session.php');
 		//info_date
 		print_r("</div>");
 		echo "<img class='img_size' src='"."{$value->link}"."''>";
+		getComments($db, $value->id);
 		print_r("<div class='interaction'>");
 		if($on)
 		{
@@ -46,6 +47,7 @@ require_once('config/session.php');
 		{
 			echo "<i id='{$value->id}' class='fa fa-heart-o heart_s' aria-hidden='true' onclick='likeImg(this.id)' style='font-size: 28px; '></i>";
 		}
+		echo "<input type='text' placeholder='Add comment...' name='comment'>";
 		print_r('</div>');
 		print_r('</div>');
 	}

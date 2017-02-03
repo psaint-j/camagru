@@ -89,6 +89,26 @@ function Login($db, $db_name, $name, $password)
 	}
 }
 
+function getComments($db, $image_id)
+{
+	$req = $db->prepare('SELECT user_id, text_comment FROM comments WHERE image_id = ? ORDER BY id DESC');
+	$req->execute(array($image_id));
+	$var = $req->fetchAll(PDO::FETCH_CLASS);
+	if ($var)
+	{
+		echo "<div class='comment'>";
+	foreach ($var as $key => $value) {
+		$user = findUser($db, $value->user_id);
+		echo "<p><h4>{$user}</h4> {$value->text_comment}</p>";
+	}
+	echo "</div>";
+}
+else
+{
+	echo "<p>no com</p>";
+}
+}
+
 function findUser($db, $id)
 {
 	$req = $db->prepare('SELECT username FROM users WHERE id = ?');

@@ -89,9 +89,10 @@ img{
 
 .heart_s
 {
-  position: relative;
-  left: -257px;
-  font-size: 27px;
+    font-size: 28px;
+    padding-left: 5%;
+    color: red;
+    float: left;
   color:#9b9b9b;
   transition: color 0.3s;
 }
@@ -101,6 +102,7 @@ img{
 }
 
 .interaction{
+  display: inline-block;
   height: 46px;
   width: 100%;
   margin-top: 10px;
@@ -162,6 +164,28 @@ button{
   position: absolute;
   top:-26px;
 }
+.comment{
+    text-align: left;
+    padding-left: 30px;
+    padding-right: 30px;
+    word-wrap: break-word;
+
+}
+
+input {
+  border: none;
+  border-left: 1px solid silver;
+  height: 30px;
+  text-align: left;
+  width: 70%;
+  padding-left: 2%;
+  font-size: medium;
+}
+
+input:focus {
+  outline: none !important;
+  border: none;
+}
 
 @media screen and (min-width: 200px) and (max-width: 1024px){
   .nav li {
@@ -205,6 +229,7 @@ button{
     width: 100%;
     margin-top: -37px;
   }
+
   /* Options 2 - Float*/
 /*  .nav li {
     float: left;

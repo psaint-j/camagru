@@ -1,4 +1,7 @@
-<?php require_once('config/database.php'); ?>
+<?php 
+require_once('config/database.php');
+require_once('config/session.php');
+?>
 <!doctype html>
 <html>
 <head>
@@ -11,6 +14,7 @@
 	<header>
 		<div class="nav">
 			<ul>
+				<li><h4 class="user_log"><?php print($_SESSION['username']); ?></h4></li>
 				<li><a href="gallery.php"><img id="home" src="svg/home.svg" alt="home"/></a></li>
 				<li><a href="menber.php"><img id="btn" src="svg/image.svg" alt="take a picture"/></a></li>
 				<li class="logout"><a href="logout.php"><img src="svg/logout2.svg" alt="logout"/></a></li>
@@ -24,9 +28,9 @@
 	foreach ($var as $key => $value) {
 		$user = findUser($db, $value->user_id);
 		$req2 = $db->prepare('SELECT id FROM likes WHERE image_id = ? AND user_id = ?');
-		$req2->execute(array($value->id, $value->user_id));
+		$req2->execute(array($value->id, $_SESSION['id']));
 		$on = $req2->fetch();
-		//var_dump($on);
+		var_dump($on);
 		print_r('<div class="box">');
 		print_r("<div class='info'>");
 		echo "<h4 class='info_user'>$user</h4>";

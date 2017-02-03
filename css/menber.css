@@ -78,17 +78,17 @@ img{
   margin-top: 10px;
 }
 
-  .nav li {
-    width: 120px;
-    border-bottom: none;
-    height: 50px;
-    line-height: 50px;
-    font-size: 1.4em;
-  }
-    .nav li {
-    display: inline-block;
-    margin-right: -4px;
-  }
+.nav li {
+  width: 120px;
+  border-bottom: none;
+  height: 50px;
+  line-height: 50px;
+  font-size: 1.4em;
+}
+.nav li {
+  display: inline-block;
+  margin-right: -4px;
+}
 
 .canvas{
   margin-top:10px;
@@ -108,6 +108,11 @@ button{
   //visibility: hidden;
 }
 
+.user_log{
+  position: absolute;
+  top:-26px;
+}
+
 @media screen and (min-width: 200px) and (max-width: 1024px){
   .nav li {
     width: 120px;
@@ -117,21 +122,21 @@ button{
     font-size: 1.4em;
   }
 
-.box{
-  margin:0 auto;
-  width: 600px;
-  height: 400px;
-  display: block;
-  text-align: center;
-  background-color: #fff;
-  border: 1px solid #efefef;
-  margin-top: 10px;
-}
+  .box{
+    margin:0 auto;
+    width: 600px;
+    height: 400px;
+    display: block;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #efefef;
+    margin-top: 10px;
+  }
 
-img{
-  width: 30%;
-  margin-top: 5px;
-}
+  img{
+    width: 30%;
+    margin-top: 5px;
+  }
   /* Option 1 - Display Inline */
   .nav li {
     display: inline-block;

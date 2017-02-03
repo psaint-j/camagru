@@ -158,6 +158,11 @@ button{
   //visibility: hidden;
 }
 
+.user_log{
+  position: absolute;
+  top:-26px;
+}
+
 @media screen and (min-width: 200px) and (max-width: 1024px){
   .nav li {
     width: 120px;
@@ -168,7 +173,7 @@ button{
   }
 
   .box{
-    margin:0 auto;
+    margin:110px auto;
     width: 600px;
     height: 400px;
     display: block;
@@ -190,8 +195,15 @@ button{
 
   .img_size
   {
-    height: 288px;
-    width: 85%;
+    height: 446px;
+    width: 100%;
+    border-radius:0 0 5px 5px;
+  }
+
+  .interaction{
+    height: 46px;
+    width: 100%;
+    margin-top: -37px;
   }
   /* Options 2 - Float*/
 /*  .nav li {

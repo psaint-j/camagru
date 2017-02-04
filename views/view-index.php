@@ -2,11 +2,11 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="css/index.css">
-	<link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Montserrat|Pacifico|Roboto" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Montserrat|Pacifico|Roboto|Grand+Hotel|Patrick+Hand+SC|Knewave|Reenie+Beanie|Rock+Salt|Poiret+One|Kaushan+Script|Amatic+SC" rel="stylesheet">
 	<title>Camagru - Hello</title>
 </head>
 <body>
-<h1>Camagru</h1>
+<h1>C A M A G R U</h1>
 <div class="box">
 <table>
 <form action="index.php" method="POST">

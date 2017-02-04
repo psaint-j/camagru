@@ -17,7 +17,7 @@ require_once('config/session.php');
 				<li><h4 class="user_log"><?php print($_SESSION['username']); ?></h4></li>
 				<li><a href="gallery.php"><img id="home" src="svg/home.svg" alt="home"/></a></li>
 				<li><a href="menber.php"><img id="btn" src="svg/image.svg" alt="take a picture"/></a></li>
-				<li class="logout"><a href="logout.php"><img src="svg/logout2.svg" alt="logout"/></a></li>
+				<li class="logout"><a href="logout.php"><img src="svg/logout.svg" alt="logout"/></a></li>
 			</ul>
 		</div>
 	</header>

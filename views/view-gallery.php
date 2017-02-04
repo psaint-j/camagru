@@ -30,10 +30,14 @@ require_once('config/session.php');
 		$req2 = $db->prepare('SELECT id FROM likes WHERE image_id = ? AND user_id = ?');
 		$req2->execute(array($value->id, $_SESSION['id']));
 		$on = $req2->fetch();
-		var_dump($on);
+		//var_dump($on);
 		print_r('<div class="box">');
 		print_r("<div class='info'>");
 		echo "<h4 class='info_user'>$user</h4>";
+		
+		echo "<h4 class='info_like'>";
+		countLike($db,$value->id);
+		echo " likes</h4>";
 		//info_date
 		print_r("</div>");
 		echo "<img class='img_size' src='"."{$value->link}"."''>";
@@ -47,11 +51,14 @@ require_once('config/session.php');
 		{
 			echo "<i id='{$value->id}' class='fa fa-heart-o heart_s' aria-hidden='true' onclick='likeImg(this.id)' style='font-size: 28px; '></i>";
 		}
-		echo "<input type='text' placeholder='Add comment...' name='comment'>";
+		echo "<form id='comment'>";
+		echo "<input class='comment' type='text' placeholder='Add comment...' name='comment' autocomplete='off'>";
+		echo "</form>";
 		print_r('</div>');
 		print_r('</div>');
 	}
 	?>
 	<script src="js/gallery.js"></script>
 </body>
+
 </html>

@@ -101,11 +101,10 @@ button{
   border: 1px;
   border-radius: 5px;
   color: white;
-  width: 94%;
+  width: 99%;
   height: 30px;
   font-family: montserrat;
   font-size: 1em;
-  //visibility: hidden;
 }
 
 .user_log{

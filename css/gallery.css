@@ -67,18 +67,20 @@ img{
 .info_user
 {
   position: relative;
-  left: -258px;
+  left: -223px;
   display: inline;
   font-size: 28px;
   font-family: amatic sc;
 }
 
-.info_date
+.info_like
 {
   position: relative;
   right: -187px;
   display: inline;
-  color: grey;
+  color: black;
+  font-family: amatic sc;
+  font-size: 27px;
 }
 
 .info{
@@ -89,10 +91,10 @@ img{
 
 .heart_s
 {
-    font-size: 28px;
-    padding-left: 5%;
-    color: red;
-    float: left;
+  font-size: 28px;
+  padding-left: 5%;
+  color: red;
+  float: left;
   color:#9b9b9b;
   transition: color 0.3s;
 }
@@ -165,10 +167,10 @@ button{
   top:-26px;
 }
 .comment{
-    text-align: left;
-    padding-left: 30px;
-    padding-right: 30px;
-    word-wrap: break-word;
+  text-align: left;
+  padding-left: 30px;
+  padding-right: 30px;
+  word-wrap: break-word;
 
 }
 

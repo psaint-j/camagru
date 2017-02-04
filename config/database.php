@@ -97,16 +97,16 @@ function getComments($db, $image_id)
 	if ($var)
 	{
 		echo "<div class='comment'>";
-	foreach ($var as $key => $value) {
-		$user = findUser($db, $value->user_id);
-		echo "<p><h4>{$user}</h4> {$value->text_comment}</p>";
+		foreach ($var as $key => $value) {
+			$user = findUser($db, $value->user_id);
+			echo "<p><h4>{$user}</h4> {$value->text_comment}</p>";
+		}
+		echo "</div>";
 	}
-	echo "</div>";
-}
-else
-{
-	echo "<p>no com</p>";
-}
+	// else
+	// {
+	// 	echo "<p>soyez le premier à ajouter un commentaire</p>";
+	// }
 }
 
 function findUser($db, $id)
@@ -115,6 +115,14 @@ function findUser($db, $id)
 	$req->execute(array($id));
 	$user = $req->fetch();
 	return $user['username'];
+}
+
+function CountLike($db, $image_id)
+{
+	$req = $db->prepare('SELECT COUNT(*) FROM likes WHERE image_id = ?');
+	$req->execute(array($image_id));
+	$var = $req->fetch();
+	echo $var['COUNT(*)'];
 }
 
 function DeletedDatabase($db, $name)

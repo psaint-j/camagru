@@ -134,7 +134,7 @@ function witchOne()
   }
   if (check4.checked)
   {
-    var img = loadImage('img/img5.png');
+    var img = loadImage('img/img3.png');
   }
   return img
 }

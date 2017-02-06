@@ -7,7 +7,7 @@ require_once('config/session.php');
 <head>
 	<link rel="stylesheet" type="text/css" href="css/gallery.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Montserrat|Pacifico|Roboto|Bahiana|Amatic+SC" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Montserrat|Pacifico|Roboto|Grand+Hotel|Patrick+Hand+SC|Knewave|Reenie+Beanie|Rock+Salt|Poiret+One|Kaushan+Script|Amatic+SC" rel="stylesheet">
 	<title>Camagru - gallery</title>
 </head>
 <body class="news">
@@ -34,14 +34,15 @@ require_once('config/session.php');
 		print_r('<div class="box">');
 		print_r("<div class='info'>");
 		echo "<h4 class='info_user'>$user</h4>";
-		
-		echo "<h4 class='info_like'>";
-		countLike($db,$value->id);
-		echo " likes</h4>";
-		//info_date
+			// echo "<h4 class='info_like'>";
+			// countLike($db,$value->id);
+			// echo " likes</h4>";
+			//info_date
 		print_r("</div>");
 		echo "<img class='img_size' src='"."{$value->link}"."''>";
+			echo "<div class='comment{$value->id} comment'>";
 		getComments($db, $value->id);
+				echo "</div>";
 		print_r("<div class='interaction'>");
 		if($on)
 		{
@@ -51,9 +52,10 @@ require_once('config/session.php');
 		{
 			echo "<i id='{$value->id}' class='fa fa-heart-o heart_s' aria-hidden='true' onclick='likeImg(this.id)' style='font-size: 28px; '></i>";
 		}
-		echo "<form id='comment'>";
-		echo "<input class='comment' type='text' placeholder='Add comment...' name='comment' autocomplete='off'>";
-		echo "</form>";
+		//echo "<form id='comment' method='post'>";
+		echo "<textarea id='c{$value->id}' class='comment' placeholder='Add comment...' autocomplete='off'></textarea>";
+		echo "<button type='submit' onclick='comment({$value->id})'></button>";
+		//echo "</form>";
 		print_r('</div>');
 		print_r('</div>');
 	}
@@ -62,3 +64,4 @@ require_once('config/session.php');
 </body>
 
 </html>
+

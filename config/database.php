@@ -57,7 +57,7 @@ function addUser($db, $name, $email, $password)
 	$password = password_cryte($password);
 	$req->execute(array($name, $password, $email, $token));
 	$var = md5("true");
-	$key = "http://localhost:8080/camagru/confirmation.php?token={$token}&name={$name}";
+	$key = "http://10.12.5.11:8080/camagru/confirmation.php?token={$token}&name={$name}";
 	sendEmail($name, $email, $key);
 	header('Location:login.php?account='."{$var}");
 	exit;
@@ -96,12 +96,11 @@ function getComments($db, $image_id)
 	$var = $req->fetchAll(PDO::FETCH_CLASS);
 	if ($var)
 	{
-		echo "<div class='comment'>";
 		foreach ($var as $key => $value) {
 			$user = findUser($db, $value->user_id);
-			echo "<p><h4>{$user}</h4> {$value->text_comment}</p>";
+			echo "<h4 class='com_user'>{$user}</h4><p class='com_text'> {$value->text_comment}</p>";
+			echo "<br>";
 		}
-		echo "</div>";
 	}
 	// else
 	// {

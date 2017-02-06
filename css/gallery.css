@@ -174,7 +174,7 @@ button{
 
 }
 
-input {
+textarea {
   border: none;
   border-left: 1px solid silver;
   height: 30px;
@@ -184,10 +184,24 @@ input {
   font-size: medium;
 }
 
-input:focus {
+textarea:focus {
   outline: none !important;
   border: none;
 }
+
+.com_user
+{
+  display:inline;
+  font-family: Patrick Hand SC;
+  font-size: 30px;
+}
+
+.com_text
+{
+  display:inline;
+  font-family: Patrick Hand SC;
+}
+
 
 @media screen and (min-width: 200px) and (max-width: 1024px){
   .nav li {

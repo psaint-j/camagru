@@ -27,6 +27,14 @@
   return httpRequest
 }
 
+// var comment = document.getElementsByClassName('comment');
+// comment.addEventListener('click', function(){
+//   for(var i=0; i<comment.length; i++)
+//   {
+//     comment[i].
+//   }
+// })
+
 function addComment() {
  
 }
@@ -48,7 +56,9 @@ function likeImg(id){
       	{
         	if (xhr.status === 200) 
         	{
-        		console.log(xhr.responseText); // contient le résultat de la page
+        		console.log(xhr.responseText);
+            //location.reload();
+             // contient le résultat de la page
       		} 
       		else 
       		{
@@ -60,7 +70,6 @@ function likeImg(id){
 		heart.classList.remove('fa-heart-o');
 		heart.classList.add('fa-heart');
 		heart.style.color='red';
-    refresh();
 	}
 	else { //dislike
      var xhr = getHttpRequest();
@@ -74,7 +83,9 @@ function likeImg(id){
         {
           if (xhr.status === 200) 
           {
-            console.log(xhr.responseText); // contient le résultat de la page
+            console.log(xhr.responseText);
+            //location.reload();
+             // contient le résultat de la page
           } 
           else 
           {
@@ -86,4 +97,42 @@ function likeImg(id){
 		heart.classList.add('fa-heart-o');
 		heart.style.color='#9b9b9b';
 	}
+}
+
+function comment(id){
+  var image_id = 'c' + id;
+  var comment = document.getElementById(image_id) ;
+    var xhr = getHttpRequest();
+    var post = new FormData();
+    post.append('comment', comment.value);
+    post.append('image_id', id);
+    xhr.open('POST', 'http://localhost:8080/camagru/comment.php', true);
+      xhr.setRequestHeader('X-Requested-With', 'xmlhttprequest');
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) 
+        {
+          if (xhr.status === 200) 
+          {
+            var user = xhr.responseText;
+            console.log(user);
+            var title = document.createElement('h4');
+            var txt = document.createElement('p');
+            var tmp = comment.value;
+            title.innerHTML = user;
+            txt.innerHTML = tmp;
+            comment.value = "";
+            console.log(title);
+            console.log(txt);
+            //location.reload();
+          } 
+          else 
+          {
+            window.alert("wrong link");
+          }
+      }
+  }
+  xhr.send(post);
+  //comment.value ="";
+  //console.log(comment.value);
+  //console.log(id);
 }

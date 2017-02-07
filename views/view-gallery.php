@@ -40,9 +40,9 @@ require_once('config/session.php');
 			//info_date
 		print_r("</div>");
 		echo "<img class='img_size' src='"."{$value->link}"."''>";
-			echo "<div class='comment{$value->id} comment'>";
+		echo "<div class='comment{$value->id} comment'>";
 		getComments($db, $value->id);
-				echo "</div>";
+		echo "</div>";
 		print_r("<div class='interaction'>");
 		if($on)
 		{
@@ -52,10 +52,7 @@ require_once('config/session.php');
 		{
 			echo "<i id='{$value->id}' class='fa fa-heart-o heart_s' aria-hidden='true' onclick='likeImg(this.id)' style='font-size: 28px; '></i>";
 		}
-		//echo "<form id='comment' method='post'>";
-		echo "<textarea id='c{$value->id}' class='comment' placeholder='Add comment...' autocomplete='off'></textarea>";
-		echo "<button type='submit' onclick='comment({$value->id})'></button>";
-		//echo "</form>";
+		echo "<input id='c{$value->id}' class='comment' type='text' placeholder='Add comment...' autocomplete='off' onkeypress='comment({$value->id})'>";
 		print_r('</div>');
 		print_r('</div>');
 	}

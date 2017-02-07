@@ -149,7 +149,7 @@ img{
   //transform: scale(-1, 1);
 }
 
-button{
+/*button{
   background-color: #3897f0;
   text-decoration: none;
   border: 1px;
@@ -160,93 +160,102 @@ button{
   font-family: montserrat;
   font-size: 1em;
   //visibility: hidden;
-}
+  }*/
 
-.user_log{
-  position: absolute;
-  top:-26px;
-}
-.comment{
-  text-align: left;
-  padding-left: 30px;
-  padding-right: 30px;
-  word-wrap: break-word;
+  .user_log{
+    position: absolute;
+    top:-26px;
+  }
+  .comment{
+    text-align: left;
+    padding-left: 30px;
+    padding-right: 30px;
+    word-wrap: break-word;
 
-}
-
-textarea {
-  border: none;
-  border-left: 1px solid silver;
-  height: 30px;
-  text-align: left;
-  width: 70%;
-  padding-left: 2%;
-  font-size: medium;
-}
-
-textarea:focus {
-  outline: none !important;
-  border: none;
-}
-
-.com_user
-{
-  display:inline;
-  font-family: Patrick Hand SC;
-  font-size: 30px;
-}
-
-.com_text
-{
-  display:inline;
-  font-family: Patrick Hand SC;
-}
-
-
-@media screen and (min-width: 200px) and (max-width: 1024px){
-  .nav li {
-    width: 120px;
-    border-bottom: none;
-    height: 50px;
-    line-height: 50px;
-    font-size: 1.4em;
   }
 
-  .box{
-    margin:110px auto;
-    width: 600px;
-    height: 400px;
-    display: block;
-    text-align: center;
-    background-color: #fff;
-    border: 1px solid #efefef;
-    margin-top: 10px;
+  input {
+    border: none;
+    border-style: none; 
+    border-color: Transparent !important;
+    border-left: 1px solid silver;
+    height: 30px;
+    text-align: left;
+    width: 70%;
+    padding-left: 2%;
+    font-size: medium;
   }
 
-  img{
-    width: 30%;
-    margin-top: 5px;
-  }
-  /* Option 1 - Display Inline */
-  .nav li {
-    display: inline-block;
-    margin-right: -4px;
+  input:focus {
+    border-style: none; 
+    border-color: Transparent;
+    outline: none !important;
+    border: none;
   }
 
-  .img_size
+  .com_user
   {
-    height: 446px;
-    width: 100%;
-    border-radius:0 0 5px 5px;
+    display:inline;
+    font-family: Patrick Hand SC;
+    font-size: 30px;
   }
 
-  .interaction{
-    height: 46px;
-    width: 100%;
-    margin-top: -37px;
+  .com_text
+  {
+    display:inline;
+    font-family: Patrick Hand SC;
   }
 
-  /* Options 2 - Float*/
+  .postit{
+    background-image: url('../svg/postit.svg');
+    width: 50px;
+    height: 50px;
+  }
+
+  @media screen and (min-width: 200px) and (max-width: 1024px){
+    .nav li {
+      width: 120px;
+      border-bottom: none;
+      height: 50px;
+      line-height: 50px;
+      font-size: 1.4em;
+    }
+
+    .box{
+      margin:110px auto;
+      width: 600px;
+      height: 400px;
+      display: block;
+      text-align: center;
+      background-color: #fff;
+      border: 1px solid #efefef;
+      margin-top: 10px;
+    }
+
+    img{
+      width: 30%;
+      margin-top: 5px;
+    }
+    /* Option 1 - Display Inline */
+    .nav li {
+      display: inline-block;
+      margin-right: -4px;
+    }
+
+    .img_size
+    {
+      height: 446px;
+      width: 100%;
+      border-radius:0 0 5px 5px;
+    }
+
+    .interaction{
+      height: 46px;
+      width: 100%;
+      margin-top: -37px;
+    }
+
+    /* Options 2 - Float*/
 /*  .nav li {
     float: left;
   }

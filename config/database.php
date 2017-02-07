@@ -98,14 +98,12 @@ function getComments($db, $image_id)
 	{
 		foreach ($var as $key => $value) {
 			$user = findUser($db, $value->user_id);
-			echo "<h4 class='com_user'>{$user}</h4><p class='com_text'> {$value->text_comment}</p>";
+			$user = htmlentities($user);
+			$comment =htmlentities($value->text_comment);
+			echo "<h4 class='com_user'>{$user}</h4><p class='com_text'> {$comment}</p>";
 			echo "<br>";
 		}
 	}
-	// else
-	// {
-	// 	echo "<p>soyez le premier à ajouter un commentaire</p>";
-	// }
 }
 
 function findUser($db, $id)

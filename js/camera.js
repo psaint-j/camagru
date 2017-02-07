@@ -107,7 +107,7 @@ function takePicture() {
     }
   }
   xhr.send(post);
-
+  location.reload();
 }
 else
   window.alert("Vous devez obligatoirement choisir une image !")

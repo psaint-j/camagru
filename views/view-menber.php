@@ -1,3 +1,7 @@
+<?php 
+	require('config/database.php');
+	require('config/session.php');
+ ?>
 <!doctype html>
 <html>
 <head>
@@ -17,6 +21,8 @@
 		</div>
 	</header>
 	<div class="box">
+	<table class="main_table">
+	<td>
 		<div class="box_left">
 			<table>
 				<tr>
@@ -38,8 +44,19 @@
 			<button id="startbutton">Prendre une photo</button>
 			<canvas class="canvas" width="560" height="400" id="canvas"></canvas>
 		</div>
-
-	</div>
+		</td>
+		<?php 
+		$test = ifUserImage($db, $_SESSION['id']);
+		if ($test) {
+		echo "<td class='aaudiber'>
+		<div class='img_user'>";
+			 getUserImage($db, $_SESSION['id']);
+			echo"</div>
+			</td>
+			</table>	
+		</div>";
+	}
+		?>
 	<script src="js/camera.js" type="text/javascript"></script>
 	<script src="js/app.js" type="text/javascript"></script>
 </body>

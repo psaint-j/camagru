@@ -106,6 +106,32 @@ function getComments($db, $image_id)
 	}
 }
 
+function getUserImage($db, $id)
+{
+	$req = $db->prepare('SELECT link FROM images WHERE user_id = ? ORDER BY id DESC');
+	$req->execute(array($id));
+	$var = $req->fetchAll();
+	foreach ($var as $key => $value) {
+		echo "<img class='img_data' src='{$value['link']}'>";
+	}
+}
+
+function ifUserImage($db, $id)
+{
+	$req = $db->prepare('SELECT link FROM images WHERE user_id = ?');
+	$req->execute(array($id));
+	$var = $req->fetch();
+	if ($var['link'])
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+
 function findUser($db, $id)
 {
 	$req = $db->prepare('SELECT username FROM users WHERE id = ?');

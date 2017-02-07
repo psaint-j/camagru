@@ -48,7 +48,6 @@ img{
 
 .box{
   margin:0 auto;
-  width: 600px;
   display: block;
   text-align: center;
   background-color: #fff;
@@ -56,6 +55,21 @@ img{
   margin-top: 10px;
 }
 
+.img_data{
+  width: 240px;
+}
+
+.img_user{
+  width: 600px;
+}
+
+.main_table{
+margin: 0 auto;
+}
+
+.aaudiber{
+  position: absolute;
+}
 .box_center{
   float: center;
   width: 600px;

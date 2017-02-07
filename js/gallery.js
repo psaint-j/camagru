@@ -131,7 +131,7 @@ function likeImg(id){
           } 
           else 
           {
-            window.alert("wrong link");
+            console.log("wrong link");
           }
         }
       }

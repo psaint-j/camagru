@@ -6,7 +6,7 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="css/menber.css">
-	<link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Montserrat|Pacifico|Roboto" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Montserrat|Pacifico|Roboto|Amatic+SC" rel="stylesheet">
 	<title>Camagru - menber</title>
 </head>
 <body class="news">

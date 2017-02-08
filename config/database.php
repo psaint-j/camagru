@@ -108,12 +108,15 @@ function getComments($db, $image_id)
 
 function getUserImage($db, $id)
 {
-	$req = $db->prepare('SELECT link FROM images WHERE user_id = ? ORDER BY id DESC');
+	$req = $db->prepare('SELECT link, id FROM images WHERE user_id = ? ORDER BY id DESC');
 	$req->execute(array($id));
 	$var = $req->fetchAll();
+
 	foreach ($var as $key => $value) {
-		echo "<img class='img_data' src='{$value['link']}'>";
+		echo "<img id='{$value['id']}' class='img_data' src='{$value['link']}' onclick='deletedImg(this.id)'>";
 	}
+	echo "<p style='font-family:Amatic sc;font-size:30px;'>cliquer sur l'image pour la suprimer</p>";
+	// var_dump($var);
 }
 
 function ifUserImage($db, $id)

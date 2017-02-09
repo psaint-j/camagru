@@ -113,7 +113,6 @@ function likeImg(id){
             comment.value = "";
             //console.log(title);
             //console.log(txt);
-            console.log(xhr.responseText);
             //location.reload();
           } 
           else 

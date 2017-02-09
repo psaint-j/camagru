@@ -39,7 +39,7 @@ require_once('config/session.php');
 			// echo " likes</h4>";
 			//info_date
 		print_r("</div>");
-		echo "<img class='img_size' src='"."{$value->link}"."''>";
+		echo "<img id='i{$value->id}' class='img_size' src='"."{$value->link}"."''>";
 		echo "<div class='comment{$value->id} comment'>";
 		getComments($db, $value->id);
 		echo "</div>";

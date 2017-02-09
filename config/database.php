@@ -47,7 +47,7 @@ function sendEmail($name, $email, $token)
 	mail($email, $objet, $contenu, $entetes);
 }
 
-function sendEmailComment($name, $email, $user)
+function sendEmailComment($name, $email, $user, $comment)
 { 
 // Mail
 	$objet = 'Activation de votre compte Camagru' ;
@@ -59,7 +59,7 @@ function sendEmailComment($name, $email, $user)
 	</head>
 	<body>
 		<h1 style="font-family:Amatic SC;">Hello '.$name.' !</h1>
-		<p">'.$user.' vient de commenter votre photo</p>
+		<h4>'.$user.'<h4><p>vient de commenter votre <a href='.$comment.'>photo</a></p>
 	</body>
 	</html>';
 	$entetes =

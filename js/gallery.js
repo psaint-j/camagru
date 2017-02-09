@@ -27,18 +27,6 @@
   return httpRequest
 }
 
-// var comment = document.getElementsByClassName('comment');
-// comment.addEventListener('click', function(){
-//   for(var i=0; i<comment.length; i++)
-//   {
-//     comment[i].
-//   }
-// })
-
-function addComment() {
-
-}
-
 function likeImg(id){
 	var heart = document.getElementById(id);
 	var val = heart.classList.contains('fa-heart-o');
@@ -57,20 +45,18 @@ function likeImg(id){
        if (xhr.status === 200) 
        {
         console.log(xhr.responseText);
-            //location.reload();
-             // contient le résultat de la page
-           } 
-           else 
-           {
-            window.alert("wrong link");
-          }
-        }
+      } 
+      else 
+      {
+        window.alert("wrong link");
       }
-      xhr.send(post);
-      heart.classList.remove('fa-heart-o');
-      heart.classList.add('fa-heart');
-      heart.style.color='red';
     }
+  }
+  xhr.send(post);
+  heart.classList.remove('fa-heart-o');
+  heart.classList.add('fa-heart');
+  heart.style.color='red';
+}
 	else { //dislike
    var xhr = getHttpRequest();
    var posty = new FormData();
@@ -107,9 +93,9 @@ function likeImg(id){
       var image_id = 'c' + id;
       var comment = document.getElementById(image_id) ;
       var xhr = getHttpRequest();
-      var post = new FormData();
-      post.append('comment', comment.value);
-      post.append('image_id', id);
+      var com = new FormData();
+      com.append('comment', comment.value);
+      com.append('image_id', id);
       xhr.open('POST', 'http://localhost:8080/camagru/comment.php', true);
       xhr.setRequestHeader('X-Requested-With', 'xmlhttprequest');
       xhr.onreadystatechange = function () {
@@ -135,7 +121,7 @@ function likeImg(id){
           }
         }
       }
-      xhr.send(post);
+      xhr.send(com);
       location.reload();
     }
   }

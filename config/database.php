@@ -1,7 +1,4 @@
 <?php
-
-//session_start();
-
 $DB_DSN = "mysql:host=localhost";
 $DB_USER = "root";
 $DB_PASSWORD = "root";
@@ -37,6 +34,31 @@ function sendEmail($name, $email, $token)
 	<body>
 		<h1>Hello '.$name.' !</h1>
 		<p>Afin de confirmer votre enregistrement, veuillez cliquer sur le lien suivant: <a href='.$token.'>activer mon compte</a></p>
+	</body>
+	</html>';
+	$entetes =
+	'Content-type: text/html; charset=utf-8' . "\r\n" .
+	'From: Camagru@domain.tld' . "\r\n" .
+	'Reply-To: Camagru@domain.tld' . "\r\n" .
+	'X-Mailer: PHP/' . phpversion();
+	
+//Envoi du mail
+	mail($email, $objet, $contenu, $entetes);
+}
+
+function sendEmail($name, $email, $user)
+{ 
+// Mail
+	$objet = 'Activation de votre compte Camagru' ;
+	$contenu = '
+	<html>
+	<head>
+		<title>Activation Camagru</title>
+		<link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Montserrat|Pacifico|Roboto|Grand+Hotel|Patrick+Hand+SC|Knewave|Reenie+Beanie|Rock+Salt|Poiret+One|Kaushan+Script|Amatic+SC|Cantarell" rel="stylesheet">
+	</head>
+	<body>
+		<h1 style="font-family:Amatic SC;">Hello '.$name.' !</h1>
+		<p style="font-family:cantarell;">Afin de confirmer votre enregistrement, veuillez cliquer sur le lien suivant: <a href='.$token.'>activer mon compte</a></p>
 	</body>
 	</html>';
 	$entetes =

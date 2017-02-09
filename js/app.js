@@ -1,16 +1,16 @@
 var btn = document.getElementById('startbutton');
 btn.style.visibility='hidden';
 function selectOnlyThis(id) {
-    for (var i = 1;i <= 4; i++)
-    {
-        document.getElementById("cbox" + i).checked = false;
-    }
-    document.getElementById(id).checked = true;
-    btn.style.visibility='visible';
+  for (var i = 1;i <= 4; i++)
+  {
+    document.getElementById("cbox" + i).checked = false;
+  }
+  document.getElementById(id).checked = true;
+  btn.style.visibility='visible';
 }
 
 var getHttpRequest = function () {
-    var httpRequest = false;
+  var httpRequest = false;
 
   if (window.XMLHttpRequest) { // Mozilla, Safari,...
     httpRequest = new XMLHttpRequest();
@@ -45,18 +45,18 @@ function deletedImg(id)
 	img.parentNode.removeChild(img);
 	//console.log(id);
 	var xhr = getHttpRequest()
-    var post = new FormData()
-    post.append('image_id', id);
-    xhr.open('POST', 'http://localhost:8080/camagru/deleted.php', true);
-    xhr.setRequestHeader('X-Requested-With', 'xmlhttprequest');
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === 4) {
-        if (xhr.status === 200) {
+  var data = new FormData()
+  data.append('image_id', id);
+  xhr.open('POST', 'http://localhost:8080/camagru/deleted.php', true);
+  xhr.setRequestHeader('X-Requested-With', 'xmlhttprequest');
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
         console.log(xhr.responseText);
       } else {
         console.log("wrong link");
       }
     }
   }
-  xhr.send(post);
+  xhr.send(data);
 }

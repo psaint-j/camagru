@@ -64,7 +64,7 @@ img{
 }
 
 .main_table{
-margin: 0 auto;
+  margin: 0 auto;
 }
 
 .aaudiber{
@@ -126,7 +126,7 @@ button{
   top:-26px;
 }
 
-@media screen and (min-width: 200px) and (max-width: 1024px){
+@media screen and (min-width: 200px) and (max-width: 1440px){
   .nav li {
     width: 120px;
     border-bottom: none;
@@ -154,6 +154,10 @@ button{
   .nav li {
     display: inline-block;
     margin-right: -4px;
+  }
+
+  .img_user{
+    width: 400px;
   }
 
   /* Options 2 - Float*/

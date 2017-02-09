@@ -26,10 +26,10 @@
 		<div class="box_left">
 			<table>
 				<tr>
-					<td><img src="img/img1.png" alt=""></td>
-					<td><img src="img/img2.png" alt=""></td>
-					<td><img src="img/img4.png" alt=""></td>
-					<td><img src="img/img3.png" alt=""></td>
+					<td><img src="img/img1.png" alt="mario"></td>
+					<td><img src="img/img2.png" alt="monkey"></td>
+					<td><img src="img/img4.png" alt="heisenberg"></td>
+					<td><img src="img/img3.png" alt="cool story bro"></td>
 				</tr>
 				<tr>
 					<td><input type="checkbox" id="cbox1" onclick="selectOnlyThis(this.id)"></td>

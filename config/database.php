@@ -30,10 +30,11 @@ function sendEmail($name, $email, $token)
 	<html>
 	<head>
 		<title>Vous avez réservé sur notre site ...</title>
+		<link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Amatic+SC|Cantarell" rel="stylesheet">
 	</head>
 	<body>
-		<h1>Hello '.$name.' !</h1>
-		<p>Afin de confirmer votre enregistrement, veuillez cliquer sur le lien suivant: <a href='.$token.'>activer mon compte</a></p>
+		<h1 style="font-family:Amatic SC;">Hello '.$name.' !</h1>
+		<p style="font-family:cantarell;">Afin de confirmer votre enregistrement, veuillez cliquer sur le lien suivant: <a href='.$token.'>activer mon compte</a></p>
 	</body>
 	</html>';
 	$entetes =
@@ -46,7 +47,7 @@ function sendEmail($name, $email, $token)
 	mail($email, $objet, $contenu, $entetes);
 }
 
-function sendEmail($name, $email, $user)
+function sendEmailComment($name, $email, $user)
 { 
 // Mail
 	$objet = 'Activation de votre compte Camagru' ;
@@ -54,11 +55,11 @@ function sendEmail($name, $email, $user)
 	<html>
 	<head>
 		<title>Activation Camagru</title>
-		<link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Montserrat|Pacifico|Roboto|Grand+Hotel|Patrick+Hand+SC|Knewave|Reenie+Beanie|Rock+Salt|Poiret+One|Kaushan+Script|Amatic+SC|Cantarell" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Amatic+SC|Cantarell" rel="stylesheet">
 	</head>
 	<body>
 		<h1 style="font-family:Amatic SC;">Hello '.$name.' !</h1>
-		<p style="font-family:cantarell;">Afin de confirmer votre enregistrement, veuillez cliquer sur le lien suivant: <a href='.$token.'>activer mon compte</a></p>
+		<p">'.$user.' vient de commenter votre photo</p>
 	</body>
 	</html>';
 	$entetes =
@@ -79,7 +80,7 @@ function addUser($db, $name, $email, $password)
 	$password = password_cryte($password);
 	$req->execute(array($name, $password, $email, $token));
 	$var = md5("true");
-	$key = "http://10.12.5.11:8080/camagru/confirmation.php?token={$token}&name={$name}";
+	$key = "http://localhost:8080/camagru/confirmation.php?token={$token}&name={$name}";
 	sendEmail($name, $email, $key);
 	header('Location:login.php?account='."{$var}");
 	exit;

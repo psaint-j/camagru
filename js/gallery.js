@@ -111,8 +111,9 @@ function likeImg(id){
             title.innerHTML = user;
             txt.innerHTML = tmp;
             comment.value = "";
-            console.log(title);
-            console.log(txt);
+            //console.log(title);
+            //console.log(txt);
+            console.log(xhr.responseText);
             //location.reload();
           } 
           else 
@@ -122,6 +123,6 @@ function likeImg(id){
         }
       }
       xhr.send(com);
-      location.reload();
+      //location.reload();
     }
   }

@@ -213,6 +213,12 @@ img{
     height: 50px;
   }
 
+  .pagination{
+    text-decoration: none;
+    font-size: 28px;
+    font-family: amatic sc;
+  }
+
   @media screen and (min-width: 200px) and (max-width: 1024px){
     .nav li {
       width: 120px;

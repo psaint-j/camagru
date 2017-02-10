@@ -15,7 +15,7 @@ require_once('config/session.php');
 		<div class="nav">
 			<ul>
 				<li><h4 class="user_log"><?php print($_SESSION['username']); ?></h4></li>
-				<li><a href="gallery.php"><img id="home" src="svg/home.svg" alt="home"/></a></li>
+				<li><a href="gallery.php?p=1"><img id="home" src="svg/home.svg" alt="home"/></a></li>
 				<li><a href="menber.php"><img id="btn" src="svg/image.svg" alt="take a picture"/></a></li>
 				<li class="logout"><a href="logout.php"><img src="svg/logout.svg" alt="logout"/></a></li>
 			</ul>
@@ -25,7 +25,6 @@ require_once('config/session.php');
 	$nbpost = CountPost($db);
 	$perPage = 4;
 	$nbPage = ceil($nbpost/$perPage);
-	echo $nbPage;
 	$cPage = $_GET['p'];
 	$current = (($cPage - 1) * $perPage);
 	$req = $db->prepare("SELECT id, user_id, link, at FROM images ORDER BY at DESC LIMIT {$current},{$perPage}");
@@ -63,10 +62,18 @@ require_once('config/session.php');
 		print_r('</div>');
 	}
 	?>
-	<?php 		
-	for ($i=1; $i <= $nbPage; $i++) { 
-		echo "<a href='gallery.php?p={$i}'>{$i} </a>";
-	} 
+	<?php 
+	print_r('<div class="box">');		
+	for ($i=1; $i <= $nbPage; $i++) {
+		if ($i == $cPage){
+			echo "<a style='color:red;' class='pagination' href='gallery.php?p={$i}'>{$i} </a> ° ";
+		}
+		else
+		{
+			echo "<a class='pagination' href='gallery.php?p={$i}'>{$i} </a> ° ";
+		}
+	}
+	print_r('</div>');
 	?>
 	<script src="js/gallery.js"></script>
 </body>

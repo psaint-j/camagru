@@ -14,10 +14,15 @@ require_once('config/session.php');
 	<header>
 		<div class="nav">
 			<ul>
-				<li><h4 class="user_log"><?php print($_SESSION['username']); ?></h4></li>
+			<?php if ($_SESSION['id']) 
+				echo "<li><h4 class='user_log'>{$_SESSION['username']}</h4></li>";
+				?>
+				
 				<li><a href="gallery.php?p=1"><img id="home" src="svg/home.svg" alt="home"/></a></li>
 				<li><a href="menber.php"><img id="btn" src="svg/image.svg" alt="take a picture"/></a></li>
-				<li class="logout"><a href="logout.php"><img src="svg/logout.svg" alt="logout"/></a></li>
+				<?php if ($_SESSION['id']) 
+				echo "<li class='logout'><a href='logout.php'><img src='svg/logout.svg' alt='logout'/></a></li>";	
+				?>
 			</ul>
 		</div>
 	</header>
@@ -27,7 +32,7 @@ require_once('config/session.php');
 	$nbPage = ceil($nbpost/$perPage);
 	$cPage = $_GET['p'];
 	$current = (($cPage - 1) * $perPage);
-	$req = $db->prepare("SELECT id, user_id, link, at FROM images ORDER BY at DESC LIMIT {$current},{$perPage}");
+	$req = $db->prepare("SELECT id, user_id, link, at FROM images ORDER BY at DESC LIMIT $current, $perPage");
 	$req->execute();
 	$var = $req->fetchAll(PDO::FETCH_CLASS);
 	foreach ($var as $key => $value) {
@@ -48,6 +53,7 @@ require_once('config/session.php');
 		echo "<div class='comment{$value->id} comment'>";
 		getComments($db, $value->id);
 		echo "</div>";
+		if ($_SESSION['id']) {
 		print_r("<div class='interaction'>");
 		if($on)
 		{
@@ -59,6 +65,7 @@ require_once('config/session.php');
 		}
 		echo "<input id='c{$value->id}' class='comment' type='text' placeholder='Add comment...' autocomplete='off' onkeypress='comment({$value->id})'>";
 		print_r('</div>');
+		}
 		print_r('</div>');
 	}
 	?>

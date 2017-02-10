@@ -22,7 +22,13 @@ require_once('config/session.php');
 		</div>
 	</header>
 	<?php
-	$req = $db->prepare('SELECT id, user_id, link, at FROM images ORDER BY at DESC');
+	$nbpost = CountPost($db);
+	$perPage = 4;
+	$nbPage = ceil($nbpost/$perPage);
+	echo $nbPage;
+	$cPage = $_GET['p'];
+	$current = (($cPage - 1) * $perPage);
+	$req = $db->prepare("SELECT id, user_id, link, at FROM images ORDER BY at DESC LIMIT {$current},{$perPage}");
 	$req->execute();
 	$var = $req->fetchAll(PDO::FETCH_CLASS);
 	foreach ($var as $key => $value) {
@@ -56,6 +62,11 @@ require_once('config/session.php');
 		print_r('</div>');
 		print_r('</div>');
 	}
+	?>
+	<?php 		
+	for ($i=1; $i <= $nbPage; $i++) { 
+		echo "<a href='gallery.php?p={$i}'>{$i} </a>";
+	} 
 	?>
 	<script src="js/gallery.js"></script>
 </body>

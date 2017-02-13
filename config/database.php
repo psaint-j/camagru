@@ -157,6 +157,29 @@ function sendEmailComment($name, $email, $user, $comment)
 		}
 	}
 
+	function getPageImage($db, $image_id)
+	{
+		$req = $db->prepare('SELECT id FROM images ORDER BY id DESC');
+		$req->execute();
+		$findimage = $req->fetchAll();
+		$i = 0;
+		$array = array();
+		foreach ($findimage as $key => $value) {
+			$i++;
+			if ($value['id'] == $image_id)
+			{
+				$array['id'] = $i;
+			}
+		}
+		$array['total'] = $i;
+		$count = 0;
+		$i = $array['id'];
+		while ($i > 0) {
+			$count++;
+			$i = $i - 4;
+		}
+		return $count;
+	}
 
 	function findUser($db, $id)
 	{

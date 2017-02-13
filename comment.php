@@ -15,7 +15,9 @@ if($_POST['comment'] && $_POST['image_id'])
 		$req = $db->prepare('SELECT username, email FROM users WHERE id = ?');
 		$req->execute(array($var['user_id']));
 		$ui = $req->fetch();
-		$link = "http://localhost:8080/camagru/gallery.php#i".$_POST['image_id'];	
+		$page = getPageImage($db, $_POST['image_id']);
+		$link = "http://localhost:8080/camagru/gallery.php?p=".$page."#i".$_POST['image_id'];
+		echo $link;	
 		sendEmailComment($ui['username'], $ui['email'], $_SESSION['username'], $link);
 	}
 	else
@@ -24,3 +26,4 @@ if($_POST['comment'] && $_POST['image_id'])
 	}
 }
 ?>
+

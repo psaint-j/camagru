@@ -229,9 +229,9 @@ img{
     }
 
     .box{
-      margin:110px auto;
-      width: 600px;
-      height: 400px;
+      margin:45px auto;
+      width: 95%;
+      height: auto;
       display: block;
       text-align: center;
       background-color: #fff;
@@ -240,8 +240,12 @@ img{
 
     }
 
+    .user_log{
+      font-family:120%;
+    }
+
     img{
-      width: 30%;
+      width: 43%;
       margin-top: 5px;
     }
     /* Option 1 - Display Inline */
@@ -252,7 +256,7 @@ img{
 
     .img_size
     {
-      height: 446px;
+      height: 100%;
       width: 100%;
       border-radius:0 0 5px 5px;
     }
@@ -260,8 +264,20 @@ img{
     .interaction{
       height: 46px;
       width: 100%;
-      margin-top: -37px;
+      //margin-top: -37px;
     }
+
+.info_user
+{
+  position: relative;
+  left: -43%;
+  display: inline;
+  font-size: 43px;
+  font-family: amatic sc;
+}
+.pagination{
+  font-size: 260%;
+}
 
     /* Options 2 - Float*/
 /*  .nav li {

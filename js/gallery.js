@@ -70,7 +70,6 @@ function likeImg(id){
       if (xhr.status === 200) 
       {
         console.log(xhr.responseText);
-            //location.reload();
              // contient le résultat de la page
            } 
            else 
@@ -122,6 +121,6 @@ function likeImg(id){
         }
       }
       xhr.send(com);
-      //location.reload();
+      location.reload();
     }
   }

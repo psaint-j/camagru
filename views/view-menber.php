@@ -57,6 +57,11 @@ require('config/session.php');
 		</div>";
 	}
 	?>
+<!-- 	<form  method="post" enctype="multipart/form-data">
+	Select image to upload:
+	<input type="file" name="fileToUpload" id="fileToUpload">
+	<input id="upload" type="submit" value="Upload Image" name="submit" onclick="function({$_SESSION['upload']})">
+	</form> -->
 	<script src="js/camera.js" type="text/javascript"></script>
 	<script src="js/app.js" type="text/javascript"></script>
 </body>

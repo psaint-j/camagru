@@ -5,11 +5,11 @@
 	</header>
 	<body>
 		<div class="box">
-			<h1>Envoyer un mail de réinitialiser</h1>
-			<table>
-			<tr><input type="email" placeholder="60email" name="mail"></tr>
-			<tr><a href="login.php"><button type="button">Connexion</button></tr>
-			</table>
+		<form action="reset.php" method="POST">
+			<h1>Envoyer un mail de réinitialisation</h1>
+			<input type="email" placeholder="mail" name="mail" required>
+			<button type="submit">reset password</button>
+			</form>
 		</div>
 
 	</body>

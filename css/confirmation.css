@@ -28,3 +28,52 @@ button{
 	font-family: montserrat;
 	font-size: 1em;
 }
+button{
+	display: block;
+    margin: 0 auto;
+    text-decoration: none;
+}
+
+a:button{
+	text-decoration:none; 
+
+}
+
+input
+{
+    width: 60%;
+    height: 30px;
+    text-align: center;
+    font-size: 18px;
+     border: none;
+    border-style: none; 
+    border-color: Transparent !important;
+}
+
+input:focus{
+	 border: none;
+    border-style: none; 
+    border-color: Transparent !important;
+	outline: none !important;
+    border: none;
+}
+
+.alert{
+		position: static;
+		bottom:0;
+		left: 0;
+		right: 0;
+		color: white;
+		list-style-type: none;
+		font-size: 24px;
+}
+
+.aRed
+{
+	background-color: #ff1a1a;
+}
+
+.aGreen
+{
+	background-color: green;
+}

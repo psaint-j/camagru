@@ -72,6 +72,31 @@ function sendEmailComment($name, $email, $user, $comment)
 		mail($email, $objet, $contenu, $entetes);
 	}
 
+function sendReset($email, $user, $token)
+{ 
+// Mail
+	$objet = 'réinitialisation du mot de passe' ;
+	$contenu = '
+	<html>
+	<head>
+		<title>réinitialisation du mot de passe</title>
+		<link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Amatic+SC|Cantarell" rel="stylesheet">
+	</head>
+	<body>
+		<h1 style="font-family:Amatic SC;">Hello '.$user.' !</h1>
+		<p style="font-family:cantarell;">Afin de confirmer la réinitialisation de votre mot de passe, veuillez cliquer sur le lien suivant: <a href='.$token.'>réinitialiser mon mot de passe</a></p>
+	</body>
+	</html>';
+	$entetes =
+	'Content-type: text/html; charset=utf-8' . "\r\n" .
+	'From: Camagru@domain.tld' . "\r\n" .
+	'Reply-To: Camagru@domain.tld' . "\r\n" .
+	'X-Mailer: PHP/' . phpversion();
+	
+//Envoi du mail
+	mail($email, $objet, $contenu, $entetes);
+	}
+
 	function addUser($db, $name, $email, $password)
 	{
 
@@ -80,10 +105,33 @@ function sendEmailComment($name, $email, $user, $comment)
 		$password = password_cryte($password);
 		$req->execute(array($name, $password, $email, $token));
 		$var = md5("true");
-		$key = "http://localhost:8080/camagru/confirmation.php?token={$token}&name={$name}";
+		$key = "http://localhost:8080/camagru/confirmation.php?token={$token}&login={$name}";
 		sendEmail($name, $email, $key);
 		header('Location:login.php?account='."{$var}");
 		exit;
+	}
+
+	function setPassword($db, $password, $login)
+	{
+		$req = $db->prepare('SELECT confirmation_at FROM users WHERE username = ?');
+		$req->execute(array($login));
+		$confirme = $req->fetch();
+
+		//var_dump($confirme);
+		if ($confirme['confirmation_at'] == NULL)
+		{
+			$req2 = $db->prepare('UPDATE users SET password = ? WHERE username = ?');
+			$req2->execute(array(password_cryte($password), $login));
+
+			$req3 = $db->prepare('UPDATE users SET confirmation_at = ? WHERE username = ?');
+			$date = date("Y-m-d");
+			$req3->execute(array($date,$login));
+			$var = md5("reset");
+			header('location:login.php?account='.$var.'');
+			exit;
+		}
+		else
+			echo "votre compte est deja activer";
 	}
 
 	function addImage($db, $id, $link)

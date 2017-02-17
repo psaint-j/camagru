@@ -47,10 +47,25 @@ h1{
 		bottom:0;
 		left: 0;
 		right: 0;
-		background-color: #ff1a1a;
 		color: white;
 		list-style-type: none;
 		font-size: 24px;
+}
+
+.aGreen{
+	background-color:green;
+}
+
+.aRed{
+	background-color: #ff1a1a;
+}
+
+.reset{
+	text-decoration: none;
+    color: #000000;
+    font-family: amatic sc;
+    font-size: 37px;
+}
 }
 @media screen and (min-width: 200px) and (max-width: 1024px){
 

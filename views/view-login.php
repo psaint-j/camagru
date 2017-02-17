@@ -18,8 +18,13 @@
 		<table>
 			<form action="login.php" method="POST">
 			<?php if ($_GET['account'] == md5("true")): ?>
-			<div class="alert">
+			<div class="alert aGreen">
 				<li>un email de confirmation vous à été envoyé</li>
+			</div>
+			<?php endif; ?>
+				<?php if ($_GET['account'] == md5("reset")): ?>
+			<div class="alert aGreen">
+				<li>Votre mot de passe à bien était changer</li>
 			</div>
 			<?php endif; ?>
 				<tr>
@@ -32,6 +37,7 @@
 					<tr>
 						<td><button type="submit">Login</button></td>
 					</tr>
+					<tr><td><a class="reset" href="reset.php">mot de passe oublier ?</a></td></tr>
 				</form>
 			</table>
 		</div>

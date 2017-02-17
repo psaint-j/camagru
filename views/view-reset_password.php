@@ -5,10 +5,11 @@
 	</header>
 	<body>
 		<div class="box">
-		<form action="reset.php" method="POST">
-			<h1>Envoyer un mail de réinitialisation</h1>
-			<input type="email" placeholder="mail" name="mail" required>
-			<button type="submit">Envoyer un mail</button>
+		<form method="POST">
+			<h1>chager de mot de passe</h1>
+			<input type="password" placeholder="password" name="password">
+			<input type="password" placeholder="re-enter password" name="repassword">
+			<button type="submit">reset password</button>
 			</form>
 		</div>
 	</body>

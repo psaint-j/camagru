@@ -1,18 +1,20 @@
 <?php
 require_once('config/database.php');
-$flash = NULL;
+$flash = array();
 
 if ($_GET['token'] && $_GET['login'])
 {
 	if (!empty($_GET['token']) && !empty($_GET['login']) && !empty($_POST['password']) && !empty($_POST['repassword']))
 	{
-		if (!empty($_POST['password']) && ($_POST['password'] != $_POST['repassword']))
+		$length = strlen($_POST['password']) >= 8;
+		$number = preg_match('#[0-9]#', $_POST['password']);
+		if (empty($_POST['password']) || !$length || !$number || $_POST['password'] != $_POST['repassword'])
+		{
+			$flash['alert'] = "Password invalide";
+		}
+		if (empty($flash))
 		{
 			setPassword($db, $_POST['password'], $_GET['login']);
-		}
-		else
-		{
-
 		}
 	}
 	require('views/view-reset_password.php');
@@ -20,12 +22,11 @@ if ($_GET['token'] && $_GET['login'])
 
 if (!empty($_POST) && $_POST['mail'])
 {
-	$error = array();
 	if (empty($_POST['mail']) || !filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL))
 	{
-		$flash = "utilisateur introuvable";
+		$flash['alert'] = "utilisateur introuvable";
 	}
-	if (empty($error))
+	if (empty($flash))
 	{
 		/* recuperation d'information
 		 de l'utilisateur */
@@ -38,19 +39,14 @@ if (!empty($_POST) && $_POST['mail'])
 		{
 			$req2 = $db->prepare('UPDATE users SET confirmation_at = ? WHERE id = ?');
 			$req2->execute(array(null, $var['id']));
-			$flash = "un mail de réinitialisation vous à été envoyer";
+			//$flash['info'] = "un mail de réinitialisation vous à été envoyer";
 			$key = "http://localhost:8080/camagru/reset.php?token={$var['confirmation_token']}&login={$var['username']}";
-			$test = sendReset($_POST['mail'], $var['username'], $key);
-			//echo "<script>console.log($test);</script>";	
+			sendReset($_POST['mail'], $var['username'], $key);
 		}
 	}
-	if ($flash)
-	{
-		//echo $flash;
-	}
 }
-if (!$_GET['token'] && !$_GET['lxogin'])
+if (!$_GET['token'] && !$_GET['login'])
 {
 	require('views/view-reset.php');
 }
- ?>
+?>

@@ -1,4 +1,4 @@
-<html>
+	<html>
 	<header>
 		<link rel="stylesheet" type="text/css" href="css/confirmation.css">
 		<link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Montserrat|Pacifico|Roboto" rel="stylesheet">
@@ -12,5 +12,12 @@
 			<button type="submit">reset password</button>
 			</form>
 		</div>
+	<?php if (!empty($flash)): ?>
+	<div class="alert aRed">
+	<?php foreach ($flash as $var): ?>
+		<li><?= $var;?></li>
+	<?php endforeach; ?>
+	</div>
+<?php endif; ?>
 	</body>
 </html>

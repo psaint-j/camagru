@@ -131,8 +131,9 @@ function sendReset($email, $user, $token)
 		}
 		else
 		{
-			$error = "votre compte est deja activer";
-			return $error;
+			print_r('<div class="alert aRed">');
+			echo "<li>Compte déjà réinitialisé</li>";
+			print_r('</div>');
 		}
 	}
 

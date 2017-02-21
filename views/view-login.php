@@ -6,7 +6,7 @@
 	<title>Camagru - login</title>
 </head>
 <body>
-	<h1>C A M A G R U</h1>
+	<a href="index.php"><h1 class="title">C A M A G R U</h1></a>
 	<?php if (!empty($error)): ?>
 		<div class="alert">
 	<?php foreach ($error as $var): ?>

@@ -39,17 +39,17 @@ if (!empty($_POST))
 		}
 	}
 
-	if (empty($_POST['password']) || $_POST['password'] != $_POST['repassword'])
+	$length = strlen($_POST['password']) >= 8;
+	$number = preg_match('#[0-9]#', $_POST['password']);
+	if (empty($_POST['password']) || !$length || !$number || $_POST['password'] != $_POST['repassword'])
 	{
 		$error['password'] = "Ce mot de passe est invalide"; 
 	}
 
 	if (empty($error))
 	{
-		addUser($db, $_POST['username'], $_POST['mail'], $_POST['password']);
-	//sessionStart($_POST);
+		addUser($db, htmlentities($_POST['username']), htmlentities($_POST['mail']), htmlentities($_POST['password']));
 	}
-	//var_dump($error);
 }
 require ('views/view-index.php');
 ?>

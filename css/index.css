@@ -68,12 +68,13 @@ h4{
 	list-style: none;
 	background-color:#ff1a1a;
 	color: white;
-	font-size: 16px;
+	font-size: 23px;
 	text-align: left;
 	list-style-position: ;
 	opacity: 0.8;
 	width: 100%;
 	text-align: center;
+	line-height: 58px;
 }
 
 @media screen and (min-width: 200px) and (max-width: 1024px)
@@ -144,5 +145,6 @@ h4{
 		opacity: 0.8;
 		width: 100%;
 		text-align: center;
+				line-height: 58px;
 	}
 }

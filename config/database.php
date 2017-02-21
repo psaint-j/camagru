@@ -117,7 +117,6 @@ function sendReset($email, $user, $token)
 		$req->execute(array($login));
 		$confirme = $req->fetch();
 
-		//var_dump($confirme);
 		if ($confirme['confirmation_at'] == NULL)
 		{
 			$req2 = $db->prepare('UPDATE users SET password = ? WHERE username = ?');
@@ -131,7 +130,10 @@ function sendReset($email, $user, $token)
 			exit;
 		}
 		else
-			echo "votre compte est deja activer";
+		{
+			$error = "votre compte est deja activer";
+			return $error;
+		}
 	}
 
 	function addImage($db, $id, $link)
@@ -187,7 +189,6 @@ function sendReset($email, $user, $token)
 			echo "<img id='{$value['id']}' class='img_data' src='{$value['link']}' onclick='deletedImg(this.id)'>";
 		}
 		echo "<p style='font-family:Amatic sc;font-size:30px;'>cliquer sur l'image pour la suprimer</p>";
-	// var_dump($var);
 	}
 
 	function ifUserImage($db, $id)

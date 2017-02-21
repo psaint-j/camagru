@@ -3,8 +3,8 @@ if (!empty($_GET))
 {
 	require_once('config/database.php'); 
 	extract($_GET);
-	$req = $db->prepare('SELECT confirmation_token FROM users WHERE username	 = ?');
-	$req->execute(array($name));
+	$req = $db->prepare('SELECT confirmation_token FROM users WHERE username = ?');
+	$req->execute(array($login));
 	$key = $req->fetch();
 	if ($key)
 	{
@@ -12,7 +12,7 @@ if (!empty($_GET))
 		if($confirmation_token == $token)
 		{
 			$date = date("Y-m-d");
-			$db->exec("UPDATE users SET confirmation_at = '{$date}' WHERE username = '{$name}' ");
+			$db->exec("UPDATE users SET confirmation_at = '{$date}' WHERE username = '{$login}' ");
 			$status = ("compte activer avec succes !");
 		}
 		else

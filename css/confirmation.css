@@ -59,7 +59,7 @@ input:focus{
 }
 
 .alert{
-		position: static;
+		position:absolute;
 		bottom:0;
 		left: 0;
 		right: 0;
@@ -68,12 +68,6 @@ input:focus{
 		font-size: 24px;
 }
 
-.aRed
-{
-	background-color: #ff1a1a;
-}
-
-.aGreen
-{
-	background-color: green;
+.aGreen{
+	background-color:green;
 }

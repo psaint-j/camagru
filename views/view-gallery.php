@@ -40,14 +40,9 @@ require_once('config/session.php');
 		$req2 = $db->prepare('SELECT id FROM likes WHERE image_id = ? AND user_id = ?');
 		$req2->execute(array($value->id, $_SESSION['id']));
 		$on = $req2->fetch();
-		//var_dump($on);
 		print_r('<div class="box">');
 		print_r("<div class='info'>");
 		echo "<h4 class='info_user'>$user</h4>";
-			// echo "<h4 class='info_like'>";
-			// countLike($db,$value->id);
-			// echo " likes</h4>";
-			//info_date
 		print_r("</div>");
 		echo "<img id='i{$value->id}' class='img_size' src='"."{$value->link}"."''>";
 		echo "<div class='comment{$value->id} comment'>";
@@ -57,7 +52,7 @@ require_once('config/session.php');
 		print_r("<div class='interaction'>");
 		if($on)
 		{
-			echo "<i id='{$value->id}' class='fa fa-heart heart_s' aria-hidden='true' onclick='likeImg(this.id)' style='font-size: 28px;color:red;'></i>";
+			echo "<i id='{$value->id}' class='fa fa-heart heart_s' aria-hidden='true' onclick='likeImg(this.id)' style='font-size: 23px;color:red;'></i>";
 		}
 		else
 		{
@@ -70,15 +65,17 @@ require_once('config/session.php');
 	}
 	?>
 	<?php 
-	print_r('<div class="box">');		
+	print_r('<div class="box">');
+	if ($nbPage != 1){		
 	for ($i=1; $i <= $nbPage; $i++) {
-		if ($i == $cPage){
+		if ($i == $cPage	){
 			echo "<a style='color:red;' class='pagination' href='gallery.php?p={$i}'>{$i} </a> ° ";
 		}
 		else
 		{
 			echo "<a class='pagination' href='gallery.php?p={$i}'>{$i} </a> ° ";
 		}
+	}
 	}
 	print_r('</div>');
 	?>

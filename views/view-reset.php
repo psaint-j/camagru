@@ -11,5 +11,13 @@
 			<button type="submit">Envoyer un mail</button>
 			</form>
 		</div>
+		<?php 
+			if ($_POST['mail'])
+			{
+				print_r('<div class="alert aGreen">');
+				echo "<li>un mail de réinitialisation vient de vous etes envoyé</li>";
+				print_r('</div>');
+			}
+		 ?>
 	</body>
 </html>

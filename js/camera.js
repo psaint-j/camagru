@@ -6,6 +6,8 @@
   canvas       = document.querySelector('#canvas'),
   photo        = document.querySelector('#photo'),
   startbutton  = document.querySelector('#startbutton'),
+  fileInput    = document.getElementById('file'),
+  upload    = document.getElementById('upload'),
   width = 601,
   height = 0;
 
@@ -82,12 +84,31 @@
   return httpRequest
 }
 
+upload.addEventListener('click', function()
+{
+  var reader = new FileReader();
+  reader.addEventListener('load', function() {
+  console.log(reader.result);
+  });
+  reader.readAsDataURL(fileInput.files[0]);
+});
+
+
+var file = reader.result;
 function takePicture() {
   var img = witchOne();
   if (img)
   {
     var ctx = canvas.getContext('2d');
-    ctx.drawImage(video, 0, 0);
+    var file = imgToUpload();
+    if (file)
+    {
+      ctx.drawImage(file, 0, 0);
+    }
+    else
+    {
+      //ctx.drawImage(video, 0, 0);
+    }
     ctx.globalAlpha = 1;
     ctx.drawImage(img, 0,50);
     var data = canvas.toDataURL('image/png');
@@ -100,9 +121,9 @@ function takePicture() {
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
-        //window.alert(xhr.responseText); // contient le résultat de la page
+        //console.log(xhr.responseText);  //contient le résultat de la page
       } else {
-        window.alert("wrong link");
+        console.log("Error Header !?");
       }
     }
   }

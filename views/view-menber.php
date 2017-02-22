@@ -52,17 +52,26 @@ require('config/session.php');
 				<div class='img_user'>";
 					getUserImage($db, $_SESSION['id']);
 					echo"</div>
+				</td>";
+				}
+				?>
+				<td>
+					<tr>
+	<input type="file" name="fileToUpload" id="file">
+	<input id="upload" type="submit" value="Upload Image" name="submit">
+					</tr>
 				</td>
 			</table>	
-		</div>";
-	}
-	?>
-	<form  method="post" enctype="multipart/form-data">
+		</div>
+
+
+<!-- 	<form  method="post" enctype="multipart/form-data">
 	Select image to upload:
 	<input type="file" name="fileToUpload" id="fileToUpload">
 	<input id="upload" type="submit" value="Upload Image" name="submit" onclick="function({$_SESSION['upload']})">
-	</form>
+	</form> -->
 	<script src="js/camera.js" type="text/javascript"></script>
+	<script src="js/upload.js" type="text/javascript"></script>
 	<script src="js/app.js" type="text/javascript"></script>
 </body>
 </html>

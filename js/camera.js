@@ -88,34 +88,59 @@ upload.addEventListener('click', function()
 {
   var reader = new FileReader();
   reader.addEventListener('load', function() {
-  console.log(reader.result);
+
+    var photo = reader.result;
+    //console.log(photo);
+    var img = witchOne();
+    if (img)
+    {
+      var xhr = getHttpRequest()
+      var post = new FormData()
+      post.append('img', photo) ;
+      post.append('sticker', img.link);
+      xhr.open('POST', 'http://localhost:8080/camagru/layer.php', true);
+      xhr.setRequestHeader('X-Requested-With', 'xmlhttprequest');
+      xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+        var code = xhr.responseText;  //contient le résultat de la page
+          console.log(code);
+          if(code)
+          {            
+            //console.log("bien recu");
+            window.alert("fichier invalide ou incorecte, seul PNG autorisé");
+          }
+        } else {
+          console.log("Error Header !?");
+        }
+      }
+    }
+    xhr.send(post);
+    location.reload();
+  }
+  else{
+    window.alert("Vous devez obligatoirement choisir une image !")
+    }
   });
   reader.readAsDataURL(fileInput.files[0]);
 });
 
 
-var file = reader.result;
 function takePicture() {
   var img = witchOne();
   if (img)
   {
     var ctx = canvas.getContext('2d');
-    var file = imgToUpload();
-    if (file)
-    {
-      ctx.drawImage(file, 0, 0);
-    }
-    else
-    {
-      //ctx.drawImage(video, 0, 0);
-    }
+    ctx.drawImage(video, 0,0);
+    var photo = canvas.toDataURL('image/png');
     ctx.globalAlpha = 1;
     ctx.drawImage(img, 0,50);
     var data = canvas.toDataURL('image/png');
     canvas.setAttribute('src', data);
     var xhr = getHttpRequest()
     var post = new FormData()
-    post.append('img', data);
+    post.append('img', photo) ;
+    post.append('sticker', img.link);
     xhr.open('POST', 'http://localhost:8080/camagru/layer.php', true);
     xhr.setRequestHeader('X-Requested-With', 'xmlhttprequest');
     xhr.onreadystatechange = function () {
@@ -144,18 +169,22 @@ function witchOne()
   if (check1.checked)
   {
     var img = loadImage('img/img1.png');
+    img.link = 'img/img1.png';
   }
   if (check2.checked)
   {
     var img = loadImage('img/img2.png');
+    img.link = 'img/img2.png';
   }
   if (check3.checked)
   {
     var img = loadImage('img/img4.png');
+    img.link = 'img/img4.png';
   }
   if (check4.checked)
   {
     var img = loadImage('img/img3.png');
+    img.link = 'img/img3.png';
   }
   return img
 }

@@ -57,7 +57,7 @@ require('config/session.php');
 				?>
 				<td>
 					<tr>
-	<input type="file" name="fileToUpload" id="file">
+	<input type="file" name="fileToUpload" id="file" accept="image/x-png,image/jpeg">
 	<input id="upload" type="submit" value="Upload Image" name="submit">
 					</tr>
 				</td>
@@ -73,5 +73,6 @@ require('config/session.php');
 	<script src="js/camera.js" type="text/javascript"></script>
 	<script src="js/upload.js" type="text/javascript"></script>
 	<script src="js/app.js" type="text/javascript"></script>
+	<footer id="footer"></footer>
 </body>
 </html>

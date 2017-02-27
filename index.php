@@ -16,7 +16,7 @@ if (!empty($_POST))
 	else
 	{
 		$req = $db->prepare('SELECT id FROM users WHERE username = ?');
-		$req->execute([$_POST['username']]);
+		$req->execute([htmlentities($_POST['username'])]);
 		$user = $req->fetch();
 		if ($user)
 		{
@@ -31,7 +31,7 @@ if (!empty($_POST))
 	else
 	{
 		$req = $db->prepare('SELECT id FROM users WHERE email = ?');
-		$req->execute([$_POST['mail']]);
+		$req->execute([htmlentities($_POST['mail'])]);
 		$mail = $req->fetch();
 		if ($mail)
 		{
@@ -52,4 +52,5 @@ if (!empty($_POST))
 	}
 }
 require ('views/view-index.php');
+//require ('gallery.php');
 ?>

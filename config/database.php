@@ -189,7 +189,7 @@ function sendReset($email, $user, $token)
 		foreach ($var as $key => $value) {
 			echo "<img id='{$value['id']}' class='img_data' src='{$value['link']}' onclick='deletedImg(this.id)'>";
 		}
-		echo "<p style='font-family:Amatic sc;font-size:30px;'>cliquer sur l'image pour la suprimer</p>";
+		echo "<p style='font-family:Amatic sc;font-size:30px;'>cliquez sur l'image pour la supprimer</p>";
 	}
 
 	function ifUserImage($db, $id)

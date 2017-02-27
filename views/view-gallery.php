@@ -12,16 +12,19 @@ require_once('config/session.php');
 </head>
 <body class="news">
 	<header>
+
 		<div class="nav">
 			<ul>
-			<?php if ($_SESSION['id']) 
-				echo "<li><h4 class='user_log'>{$_SESSION['username']}</h4></li>";
-				?>
-				
-				<li><a href="gallery.php?p=1"><img id="home" src="svg/home.svg" alt="home"/></a></li>
-				<li><a href="menber.php"><img id="btn" src="svg/image.svg" alt="take a picture"/></a></li>
-				<?php if ($_SESSION['id']) 
-				echo "<li class='logout'><a href='logout.php'><img src='svg/logout.svg' alt='logout'/></a></li>";	
+			<?php if ($_SESSION['id']){
+				echo '<li><h4 class="user_log">'.$_SESSION["username"].'</h4></li>
+		<li><a href="gallery.php?p=1"><img id="home" src="svg/home.svg" alt="home"/></a></li>
+		<li><a href="menber.php"><img id="btn" src="svg/image.svg" alt="take a picture"/></a></li>
+			 <li class="logout"><a href="logout.php"><img src="svg/logout.svg" alt="logout"/></a></li>';
+			 }
+			 else
+			 {
+			 		echo "<h1>C A M A G R U</h1>";
+			 }
 				?>
 			</ul>
 		</div>
@@ -30,7 +33,7 @@ require_once('config/session.php');
 	$nbpost = CountPost($db);
 	$perPage = 4;
 	$nbPage = ceil($nbpost/$perPage);
-	$cPage = $_GET['p'];
+	$cPage = htmlentities($_GET['p']);
 	$current = (($cPage - 1) * $perPage);
 	$req = $db->prepare("SELECT id, user_id, link, at FROM images ORDER BY at DESC LIMIT $current, $perPage");
 	$req->execute();

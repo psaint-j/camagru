@@ -20,7 +20,7 @@ require('config/session.php');
 			</ul>
 		</div>
 	</header>
-	<div class="box">
+	<div class="box_border_none">
 		<table class="main_table">
 			<td>
 				<div class="box_left">
@@ -57,21 +57,13 @@ require('config/session.php');
 				?>
 				<td>
 					<tr>
-	<input type="file" name="fileToUpload" id="file" accept="image/x-png,image/jpeg">
-	<input id="upload" type="submit" value="Upload Image" name="submit">
+	<input type="file" name="fileToUpload" id="file" accept="image/x-png">
+	<input id="upload" type="submit" value="Prendre une photo" name="submit">
 					</tr>
 				</td>
 			</table>	
 		</div>
-
-
-<!-- 	<form  method="post" enctype="multipart/form-data">
-	Select image to upload:
-	<input type="file" name="fileToUpload" id="fileToUpload">
-	<input id="upload" type="submit" value="Upload Image" name="submit" onclick="function({$_SESSION['upload']})">
-	</form> -->
 	<script src="js/camera.js" type="text/javascript"></script>
-	<script src="js/upload.js" type="text/javascript"></script>
 	<script src="js/app.js" type="text/javascript"></script>
 	<footer id="footer"></footer>
 </body>

@@ -88,9 +88,12 @@ upload.addEventListener('click', function()
 {
   var reader = new FileReader();
   reader.addEventListener('load', function() {
-
+    if (fileInput.files[0].size > 2097152)
+    {
+      window.alert("fichier trop volumineux !");
+    }
+    
     var photo = reader.result;
-    //console.log(photo);
     var img = witchOne();
     if (img)
     {
@@ -102,7 +105,7 @@ upload.addEventListener('click', function()
       xhr.setRequestHeader('X-Requested-With', 'xmlhttprequest');
       xhr.onreadystatechange = function () {
       if (xhr.readyState === 4) {
-        if (xhr.status === 200) {
+        if (xhr.status === 200) { 
         var code = xhr.responseText;  //contient le résultat de la page
           console.log(code);
           if(code)
@@ -110,18 +113,19 @@ upload.addEventListener('click', function()
             //console.log("bien recu");
             window.alert("fichier invalide ou incorecte, seul PNG autorisé");
           }
+          location.reload();
         } else {
           console.log("Error Header !?");
         }
       }
     }
     xhr.send(post);
-    location.reload();
   }
   else{
     window.alert("Vous devez obligatoirement choisir une image !")
     }
   });
+  if (fileInput.files[0])
   reader.readAsDataURL(fileInput.files[0]);
 });
 

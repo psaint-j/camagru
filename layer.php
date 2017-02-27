@@ -23,17 +23,17 @@ if ($_POST['img'] && $_POST['sticker'])
 
 	if ($destination = imagecreatefrompng($link))
 	{
-	$largeur_destination = imagesx($destination);
-	$hauteur_destination = imagesy($destination);
+		$largeur_destination = imagesx($destination);
+		$hauteur_destination = imagesy($destination);
 
-	$destination_x = ($largeur_destination - $largeur_source) / 2;
-	$destination_y = ($hauteur_destination - $hauteur_source) / 2;
+		$destination_x = ($largeur_destination - $largeur_source) / 2;
+		$destination_y = ($hauteur_destination - $hauteur_source) / 2;
 
-	imagecopy($destination, $source, $destination_x, $destination_y, 0, 0, $largeur_source, $hauteur_source);
-	imagepng($destination, $link);
-	imagedestroy($destination);
-	imagedestroy($source);
-	addImage($db, $_SESSION[id], $link);
+		imagecopy($destination, $source, $destination_x, $destination_y, 0, 0, $largeur_source, $hauteur_source);
+		imagepng($destination, $link);
+		imagedestroy($destination);
+		imagedestroy($source);
+		addImage($db, $_SESSION[id], $link);
 	}
 }
 ?>

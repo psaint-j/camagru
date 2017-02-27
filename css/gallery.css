@@ -4,6 +4,12 @@ body {
   background: #fafafa;
 }
 
+h1{
+  font-family: Amatic SC;
+  font-size: 5em;
+  margin-bottom: -0.2%;
+}
+
 i{
   color: black;
 }

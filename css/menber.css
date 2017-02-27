@@ -46,6 +46,15 @@ img{
   background-color: #fafafa;
 }
 
+.box_border_none{
+  border: none;
+  margin:0 auto;
+  display: block;
+  text-align: center;
+  background-color: #fff;
+  margin-top: 10px;
+}
+
 .box{
   margin:0 auto;
   display: block;
@@ -137,6 +146,17 @@ button{
     line-height: 58px;
     background-color: #ff1a1a;
     text-align: center;
+}
+
+#file{
+  position: relative;
+  right: 128px;
+
+}
+
+#upload{
+  position: relative;
+  left: 120px;
 }
 
 @media screen and (min-width: 200px) and (max-width: 1440px){

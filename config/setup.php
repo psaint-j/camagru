@@ -42,7 +42,7 @@ function SetupDatabase($db, $db_name)
 		id INT NOT NULL PRIMARY KEY AUTO_INCREMENT , 
 		user_id INT NOT NULL , 
 		image_id INT NOT NULL , 
-		text_comment VARCHAR(500) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL);");
+		text_comment VARCHAR(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL);");
 	$db->exec("USE {$db_name}");
 }
 

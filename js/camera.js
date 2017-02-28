@@ -80,7 +80,6 @@
     alert('Abandon :( Impossible de créer une instance XMLHTTP');
     return false;
   }
-
   return httpRequest
 }
 
@@ -151,13 +150,15 @@ function takePicture() {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
         //console.log(xhr.responseText);  //contient le résultat de la page
+        location.reload();
       } else {
         console.log("Error Header !?");
+        alert(xhr.responseText);
       }
     }
   }
   xhr.send(post);
-  location.reload();
+  //location.reload();
 }
 else
   window.alert("Vous devez obligatoirement choisir une image !")

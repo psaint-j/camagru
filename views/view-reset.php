@@ -11,11 +11,12 @@
 			<button type="submit">Envoyer un mail</button>
 			</form>
 		</div>
-		<?php 
-			if ($_POST['mail'])
+		<?php
+		var_dump($_SESSION);
+			if ($_POST['mail'] || $_SESSION['alert'])
 			{
 				print_r('<div class="alert aGreen">');
-				echo "<li>un mail de réinitialisation vient de vous etes envoyé</li>";
+				echo $_SESSION['alert'];
 				print_r('</div>');
 			}
 		 ?>

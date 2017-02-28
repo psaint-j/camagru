@@ -23,7 +23,7 @@ require_once('config/session.php');
 			 }
 			 else
 			 {
-			 		echo "<h1>C A M A G R U</h1>";
+			 		echo "<a href='index.php'><h1>C A M A G R U</h1></a>";
 			 }
 				?>
 			</ul>
@@ -34,7 +34,10 @@ require_once('config/session.php');
 	$perPage = 4;
 	$nbPage = ceil($nbpost/$perPage);
 	$cPage = htmlentities($_GET['p']);
+	//var_dump($cPage)
 	$current = (($cPage - 1) * $perPage);
+	if ($current >= 0 && $cPage <= $nbPage)
+	{
 	$req = $db->prepare("SELECT id, user_id, link, at FROM images ORDER BY at DESC LIMIT $current, $perPage");
 	$req->execute();
 	$var = $req->fetchAll(PDO::FETCH_CLASS);
@@ -61,14 +64,20 @@ require_once('config/session.php');
 		{
 			echo "<i id='{$value->id}' class='fa fa-heart-o heart_s' aria-hidden='true' onclick='likeImg(this.id)' style='font-size: 23px;@media screen and (min-width: 200px) and (max-width: 1024px){font-size: 57px;}'></i>";
 		}
-		echo "<input id='c{$value->id}' class='comment' type='text' placeholder='Add comment...' autocomplete='off' onkeypress='comment({$value->id})'>";
+		echo "<input id='c{$value->id}' class='comment' type='text' placeholder='Add comment...' maxlength='1000' autocomplete='off' onkeypress='comment({$value->id})'>";
 		print_r('</div>');
 		}
 		print_r('</div>');
 	}
+}
+else
+{
+	require_once('views/view-error.php');
+	roll_safe("Tu peut pas voir cette page si t'es sur la page 404");
+}
 	?>
 	<?php 
-	print_r('<div class="box">');
+	print_r('<div class="box box_pagination">');
 	if ($nbPage != 1){		
 	for ($i=1; $i <= $nbPage; $i++) {
 		if ($i == $cPage	){

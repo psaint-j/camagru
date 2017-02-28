@@ -22,10 +22,7 @@ if ($_GET['token'] && $_GET['login'])
 
 if (!empty($_POST) && $_POST['mail'])
 {
-	if (empty($_POST['mail']) || !filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL))
-	{
-		$flash['alert'] = "utilisateur introuvable";
-	}
+
 	if (empty($flash))
 	{
 		/* recuperation d'information
@@ -42,7 +39,12 @@ if (!empty($_POST) && $_POST['mail'])
 			//$flash['info'] = "un mail de réinitialisation vous à été envoyer";
 			$key = "http://localhost:8080/camagru/reset.php?token={$var['confirmation_token']}&login={$var['username']}";
 			sendReset($_POST['mail'], $var['username'], $key);
+			$_SESSION['alert'] = "un mail de réinitialisation vient de vous etes envoyé";
 		}
+	}
+	if (empty($_POST['mail']) || !filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL))
+	{
+		$_SESSION['alert'] = "utilisateur introuvable";
 	}
 }
 if (!$_GET['token'] && !$_GET['login'])

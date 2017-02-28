@@ -4,7 +4,7 @@ if (!empty($_GET))
 	require_once('config/database.php'); 
 	extract($_GET);
 	$req = $db->prepare('SELECT confirmation_token FROM users WHERE username = ?');
-	$req->execute(array($login));
+	$req->execute(array(htmlentities($login)));
 	$key = $req->fetch();
 	if ($key)
 	{

@@ -12,12 +12,15 @@
 			</form>
 		</div>
 		<?php
-		var_dump($_SESSION);
-			if ($_POST['mail'] || $_SESSION['alert'])
+			if ($_POST['mail'])
 			{
 				print_r('<div class="alert aGreen">');
 				echo $_SESSION['alert'];
 				print_r('</div>');
+			}
+			else
+			{
+				
 			}
 		 ?>
 	</body>

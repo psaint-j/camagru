@@ -1,6 +1,6 @@
 <?php
 require_once("config/session.php");
-require_once("config/database.php");
+require_once("config/database.php"); 
 if ($_SESSION['username'])
 {
 	header('Location: menber.php');
@@ -51,5 +51,5 @@ if (!empty($_POST))
 		addUser($db, htmlentities($_POST['username']), htmlentities($_POST['mail']), htmlentities($_POST['password']));
 	}
 }
-require ('gallery.php');
+require('views/view-index.php');
 ?>

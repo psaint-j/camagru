@@ -6,7 +6,7 @@
 	<body>
 		<div class="box">
 		<form method="POST">
-			<h1>chager de mot de passe</h1>
+			<h1>changer de mot de passe</h1>
 			<input type="password" placeholder="password" name="password">
 			<input type="password" placeholder="re-enter password" name="repassword">
 			<button type="submit">reset password</button>

@@ -29,17 +29,24 @@
 			<?php endif; ?>
 				<tr>
 					<tr>
-						<td><input name="username" type="text" placeholder="name"></td>
+						<td><input name="username" type="text" placeholder="pseudo"></td>
 					</tr>
 					<tr>
 						<td><input name="password" type="password" placeholder="password"></td>
 					</tr>
 					<tr>
-						<td><button type="submit">Login</button></td>
+						<td><button type="submit">Connexion</button></td>
 					</tr>
-					<tr><td><a class="reset" href="reset.php">mot de passe oublier ?</a></td></tr>
+					<tr><td><a class="reset" href="reset.php">mot de passe oublié ?</a></td></tr>
 				</form>
 			</table>
 		</div>
+			<?php if (!empty($error)): ?>
+	<div class="alert aRed">
+	<?php foreach ($error as $var): ?>
+		<li><?= $var;?></li>
+	<?php endforeach; ?>
+	</div>
+<?php endif; ?>
 	</body>
 	</html>

@@ -69,7 +69,6 @@ function likeImg(id){
     {
       if (xhr.status === 200) 
       {
-        console.log(xhr.responseText);
              // contient le résultat de la page
            } 
            else 
@@ -86,7 +85,6 @@ function likeImg(id){
 
   function comment(id){
     var key = window.event.keyCode;
-    console.log(key)
     if (key == 13)
     {
       var image_id = 'c' + id;
@@ -102,17 +100,7 @@ function likeImg(id){
         {
           if (xhr.status === 200) 
           {
-            var user = xhr.responseText;
-            console.log(user);
-            var title = document.createElement('h4');
-            var txt = document.createElement('p');
-            var tmp = comment.value;
-            title.innerHTML = user;
-            txt.innerHTML = tmp;
-            comment.value = "";
-            //console.log(title);
-            //console.log(txt);
-            //location.reload();
+       location.reload();
           } 
           else 
           {
@@ -121,6 +109,5 @@ function likeImg(id){
         }
       }
       xhr.send(com);
-      location.reload();
     }
   }

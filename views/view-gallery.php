@@ -24,6 +24,7 @@ require_once('config/session.php');
 			 else
 			 {
 			 		echo "<a href='index.php'><h1>C A M A G R U</h1></a>";
+			 		echo "<a href='signin.php'><h4>S'incrire | connextion<h4></a>";
 			 }
 				?>
 			</ul>
@@ -73,7 +74,14 @@ require_once('config/session.php');
 else
 {
 	require_once('views/view-error.php');
-	roll_safe("Tu peut pas voir cette page si t'es sur la page 404");
+	if ($nbpost == 0)
+	{
+		roll_safe("Tu peux pas voir la galerie s'il y a rien a afficher");
+	}
+	else
+	{
+		roll_safe("Tu peut pas voir cette page si t'es sur la page 404");
+	}
 }
 	?>
 	<?php 

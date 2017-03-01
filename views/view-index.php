@@ -9,7 +9,7 @@
 <h1>C A M A G R U</h1>
 <div class="box">
 <table>
-<form action="index.php" method="POST">
+<form action="signin.php" method="POST">
 <tr>
 	<td>
 	<?php if (!empty($error)): ?>
@@ -22,13 +22,13 @@
 	</td>
 </tr>
 <tr>
-	<td><a href="login.php"><button type="button">Login</button></a></td>
+	<td><a href="login.php"><button type="button">Connexion</button></a></td>
 </tr>
 <tr>
 <td><br></td>
 </tr>
 <tr>
-	<td><input type="text" placeholder="name" name="username"></td>
+	<td><input type="text" placeholder="pseudo" name="username"></td>
 </tr>
 <tr>
 	<td><input type="email" placeholder="email" name="mail"></td>
@@ -40,7 +40,7 @@
 	<td><input type="password" placeholder="re-enter password" name="repassword"></td>
 </tr>
 <tr>
-	<td><button type="submit">Sign Up</button></td>
+	<td><button type="submit">inscription</button></td>
 </tr>
 </form>
 </table>
